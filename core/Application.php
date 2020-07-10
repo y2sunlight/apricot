@@ -201,7 +201,7 @@ class Application
         {
             $uri = substr($uri, 0, $pos);
         }
-        $uri = rawurldecode($uri);
+        $uri = rawurldecode(preg_replace('/index.php$/','',$uri));
 
         $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
         switch ($routeInfo[0])
