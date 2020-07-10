@@ -78,16 +78,19 @@ class Response
      */
     public function commit(int $response_code=null)
     {
-        // Set Http response code
-        if (isset($response_code))
+        if (!headers_sent())
         {
-            http_response_code($response_code);
-        }
+            // Set Http response code
+            if (isset($response_code))
+            {
+                http_response_code($response_code);
+            }
 
-        // Output headers
-        foreach($this->headers as $header)
-        {
-            header($header);
+            // Output headers
+            foreach($this->headers as $header)
+            {
+                header($header);
+            }
         }
 
         // Save old URL Path
