@@ -8,7 +8,7 @@ return function():bool
     $db_file = config('idiorm.sqlite.db_file');
     if (!file_exists($db_path=dirname($db_file)))
     {
-        mkdir($db_path,null,true);
+        @mkdir($db_path, null, true);
     }
 
     // DBファイルの存在確認
