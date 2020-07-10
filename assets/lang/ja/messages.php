@@ -1,0 +1,81 @@
+<?php
+return [
+    'app'=>[
+        'title'=>env('APP_NAME'),
+        'menu'=>[
+            'menu1'=>'Users',
+            'menu2'=>'Menu2',
+            'menu3'=>'Menu3',
+            'logout'=>'Logout',
+            'about_me'=>'About Me',
+        ],
+    ],
+    'success' => [
+        'db' => [
+            'insert' => 'データを登録しました',
+            'update' => 'データを更新しました',
+            'delete' => 'データを削除しました',
+        ],
+    ],
+    'error'=>[
+        'unknown'=>'エラーが発生しました',
+        'db' => [
+            'access' => 'データアクセスが失敗しました',
+            'insert' => 'データの登録が失敗しました',
+            'update' => 'データの更新が失敗しました',
+            'delete' => 'データの削除が失敗しました',
+            'optimisstic_lock'=>'データが他のユーザによって更新されています',
+        ],
+    ],
+    'home'=>[
+        'title'=>env('APP_NAME'),
+        'msg_hello'=>'Hello, :account !',
+    ],
+    'user'=>[
+        'index'=> [
+            'title'=>'ユーザ一覧',
+            'id'=>'ID',
+            'account'=>'アカウント',
+            'email'=>'メールアドレス',
+            'note'=>'備考',
+            'created_at'=>'登録日',
+            'btn_new'=>'新規',
+        ],
+        'create'=>[
+            'title'=>'ユーザ新規登録',
+            'account'=>'アカウント',
+            'password'=>'パスワード',
+            'password_confirmation'=>'パスワード(確認)',
+            'email'=>'メールアドレス',
+            'note'=>'備考',
+            'hint_account'=>'半角英数字で入力して下さい',
+            'hint_password'=>'パスワードを入力して下さい',
+            'hint_password_confirmation'=>'パスワードを再入力して下さい',
+            'hint_email'=>'apricot@sample.com',
+            'hint_note'=>'必要な場合は入力して下さい',
+            'btn_back'=>'戻る',
+            'btn_cancel'=>'キャンセル',
+            'btn_insert'=>'保存',
+
+        ],
+        'edit'=>[
+            'title'=>'ユーザ編集',
+            'account'=>'アカウント',
+            'password'=>'パスワード',
+            'password_confirmation'=>'パスワード(確認)',
+            'email'=>'メールアドレス',
+            'note'=>'備考',
+            'created_at'=>'登録日',
+            'updated_at'=>'更新日',
+            'hint_password'=>'変更する場合は入力して下さい',
+            'hint_password_confirmation'=>'パスワードを再入力して下さい',
+            'hint_email'=>'apricot@sample.com',
+            'hint_note'=>'必要な場合は入力して下さい',
+            'btn_back'=>'戻る',
+            'btn_delete'=>'削除',
+            'btn_cancel'=>'キャンセル',
+            'btn_update'=>'保存',
+            'msg_delete'=>'削除します。よろしいですか？',
+        ],
+    ],
+];
