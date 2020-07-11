@@ -1,8 +1,8 @@
 <?php
-namespace Core\Foundation\Security;
+namespace Apricot\Foundation\Security;
 
-use Core\Cookie;
-use \Core\Session;
+use Apricot\Cookie;
+use Apricot\Session;
 
 /**
  * Authentication

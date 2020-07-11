@@ -1,8 +1,8 @@
 <?php
-namespace Core;
+namespace Apricot;
 
-use Core\Foundation\Singleton;
-use Core\Foundation\Translation;
+use Apricot\Foundation\Singleton;
+use Apricot\Foundation\Translation;
 
 /**
  * Lang Class - Translation Wrapper

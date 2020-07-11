@@ -1,7 +1,7 @@
 <?php
 namespace App\Foundation;
 
-use Core\Foundation\ErrorBag;
+use Apricot\Foundation\ErrorBag;
 
 class ValidatorErrorBag extends ErrorBag
 {

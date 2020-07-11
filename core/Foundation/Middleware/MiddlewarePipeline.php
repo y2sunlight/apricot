@@ -1,7 +1,7 @@
 <?php
-namespace Core\Foundation\Middleware;
+namespace Apricot\Foundation\Middleware;
 
-use Core\Foundation\ActionInvoker;
+use Apricot\Foundation\ActionInvoker;
 
 class MiddlewarePipeline
 {
@@ -36,7 +36,7 @@ class MiddlewarePipeline
     /**
      * Execute action
      * @param ActionInvoker $action
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function executeAction(ActionInvoker $invoker)
     {

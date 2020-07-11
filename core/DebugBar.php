@@ -1,8 +1,8 @@
 <?php
-namespace Core;
+namespace Apricot;
 
-use Core\Foundation\Singleton;
-use Core\Derivations\StandardDebugBar;
+use Apricot\Foundation\Singleton;
+use Apricot\Derivations\StandardDebugBar;
 
 /**
  * DebugBar Class - StandardDebugBar Wrapper
@@ -16,7 +16,7 @@ class DebugBar extends Singleton
 {
     /**
      * Create SimpleDebugBar instance.
-     * @return \Core\Derivations\SimpleDebugBar;
+     * @return \Apricot\Derivations\SimpleDebugBar;
      */
     protected static function createInstance()
     {

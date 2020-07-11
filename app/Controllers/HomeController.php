@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     /**
      * Home Page
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function index()
     {

@@ -1,8 +1,8 @@
 <?php
 namespace App\Foundation\Security;
 
-use Core\Foundation\Singleton;
-use Core\Foundation\Security\Authentication;
+use Apricot\Foundation\Singleton;
+use Apricot\Foundation\Security\Authentication;
 use App\Models\User;
 
 /**
@@ -21,7 +21,7 @@ class AuthUser extends Singleton
 {
     /**
      * Create user authentication instance.
-     * @return \Core\Foundation\Security\Authentication
+     * @return \Apricot\Foundation\Security\Authentication
      */
     protected static function createInstance()
     {

@@ -1,7 +1,7 @@
 <?php
-namespace Core;
+namespace Apricot;
 
-use Core\Foundation\Singleton;
+use Apricot\Foundation\Singleton;
 use eftec\bladeone\BladeOne;
 
 /**

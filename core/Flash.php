@@ -1,7 +1,7 @@
 <?php
-namespace Core;
+namespace Apricot;
 
-use Core\Foundation\CallStatic;
+use Apricot\Foundation\CallStatic;
 
 /**
  * Flash Class - SimpleFlash Wrapper
@@ -21,6 +21,6 @@ class Flash extends CallStatic
      */
     public static function getInstance()
     {
-        return \Core\Session::flash();
+        return Session::flash();
     }
 }

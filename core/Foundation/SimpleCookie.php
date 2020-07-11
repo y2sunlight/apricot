@@ -1,5 +1,5 @@
 <?php
-namespace Core\Foundation;
+namespace Apricot\Foundation;
 
 /**
  * Very Simple Cookie Class - $_COOKIE Wrapper

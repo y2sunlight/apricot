@@ -3,7 +3,7 @@ namespace App\Models;
 
 use App\Foundation\Model;
 use ORM;
-use Core\Foundation\Security\Authenticatable;
+use Apricot\Foundation\Security\Authenticatable;
 use App\Foundation\Security\AuthTrait;
 
 /**

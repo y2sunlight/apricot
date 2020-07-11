@@ -1,8 +1,8 @@
 <?php
-namespace Core\Foundation\Middleware;
+namespace Apricot\Foundation\Middleware;
 
-use Core\Foundation\Invoker;
-use Core\Foundation\Response;
+use Apricot\Foundation\Invoker;
+use Apricot\Foundation\Response;
 
 /**
  * Middleware Invoker
@@ -34,9 +34,9 @@ class MiddlewareInvoker implements Invoker
 
     /**
      * Invoke middleware
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      * {@inheritDoc}
-     * @see \Core\Foundation\Invoker::invoke()
+     * @see \Apricot\Foundation\Invoker::invoke()
      */
     public function invoke(): Response
     {

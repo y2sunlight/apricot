@@ -1,8 +1,8 @@
 <?php
-namespace Core\Foundation\Security;
+namespace Apricot\Foundation\Security;
 
-use Core\Input;
-use Core\Session;
+use Apricot\Input;
+use Apricot\Session;
 
 /**
  * CSRF
@@ -32,7 +32,7 @@ class CsrfToken
         {
             if (Input::get(self::CSRF_KEY,'A') != Session::get(self::CSRF_KEY,'B'))
             {
-                \Core\Log::error('VerifyCsrf Error',[Input::get(self::CSRF_KEY),Session::get(self::CSRF_KEY)]);
+                \Apricot\Log::error('VerifyCsrf Error',[Input::get(self::CSRF_KEY),Session::get(self::CSRF_KEY)]);
                 $ret = false;
             }
         }

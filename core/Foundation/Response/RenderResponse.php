@@ -1,10 +1,10 @@
 <?php
-namespace Core\Foundation\Response;
+namespace Apricot\Foundation\Response;
 
 /*
  * Rendered Response Class
  */
-class RenderResponse extends \Core\Foundation\Response
+class RenderResponse extends \Apricot\Foundation\Response
 {
     /**
      * Html Data
@@ -36,7 +36,7 @@ class RenderResponse extends \Core\Foundation\Response
     /**
      * commit
      * {@inheritDoc}
-     * @see \Core\Foundation\Response::commit()
+     * @see \Apricot\Foundation\Response::commit()
      */
     public function commit(int $response_code=null)
     {

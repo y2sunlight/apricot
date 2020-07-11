@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Exceptions\ApplicationException;
 use App\Foundation\Controller;
 use App\Models\User;
-use Core\Input;
+use Apricot\Input;
 
 /**
  * ユーザコントローラ
@@ -35,7 +35,7 @@ class UserController extends Controller
 
     /**
      * ユーザ一覧
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function index()
     {
@@ -46,7 +46,7 @@ class UserController extends Controller
 
     /**
      * ユーザ新規登録
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function create()
     {
@@ -57,7 +57,7 @@ class UserController extends Controller
 
     /**
      * ユーザレコード挿入
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function insert()
     {
@@ -79,7 +79,7 @@ class UserController extends Controller
 
     /**
      * ユーザ編集
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function edit(int $id)
     {
@@ -98,7 +98,7 @@ class UserController extends Controller
     /**
      * ユーザレコード更新
      * @param int $id
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function update(int $id)
     {
@@ -125,7 +125,7 @@ class UserController extends Controller
     /**
      * ユーザレコード削除
      * @param int $id
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function delete(int $id)
     {

@@ -2,8 +2,8 @@
 namespace App\Foundation;
 
 use App\Exceptions\ApplicationException;
-use Core\Foundation\BaseController;
-use Core\Foundation\ErrorBag;
+use Apricot\Foundation\BaseController;
+use Apricot\Foundation\ErrorBag;
 use ORM;
 
 /**
@@ -29,7 +29,7 @@ class Controller extends BaseController
 
     /**
      * {@inheritDoc}
-     * @see \Core\Foundation\BaseController::callAction()
+     * @see \Apricot\Foundation\BaseController::callAction()
      */
     protected function callAction($actionName, $params)
     {
@@ -56,8 +56,8 @@ class Controller extends BaseController
         catch(ApplicationException $e)
         {
             ORM::getDb()->rollBack();
-            \Core\Log::exception('error',$e);
-            \Core\Debug::error($e);
+            \Apricot\Log::exception('error',$e);
+            \Apricot\Debug::error($e);
 
             // Redirect
             $errorBag = new ErrorBag($e->getUserMessage());

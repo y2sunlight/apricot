@@ -1,10 +1,10 @@
 <?php
 namespace App\Middleware;
 
-use Core\Foundation\Response;
-use Core\Foundation\Invoker;
-use Core\Foundation\Middleware\Middleware;
-use Core\Foundation\Security\CsrfToken;
+use Apricot\Foundation\Response;
+use Apricot\Foundation\Invoker;
+use Apricot\Foundation\Middleware\Middleware;
+use Apricot\Foundation\Security\CsrfToken;
 
 /**
  * CSRFトークンの検証 - Middleware
@@ -22,7 +22,7 @@ class VerifyCsrfToken implements Middleware
     /**
      * Process incoming requests and produces a response
      * {@inheritDoc}
-     * @see \Core\Foundation\Middleware\Middleware::invoke()
+     * @see \Apricot\Foundation\Middleware\Middleware::invoke()
      */
     public function process(Invoker $next): Response
     {
@@ -31,7 +31,7 @@ class VerifyCsrfToken implements Middleware
             // CSRFトークンの検証を行う
             if (!CsrfToken::verify())
             {
-                throw new \Core\Exceptions\TokenMismatchException('VerifyCsrfToken Error');
+                throw new \Apricot\Exceptions\TokenMismatchException('VerifyCsrfToken Error');
             }
         }
 

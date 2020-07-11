@@ -1,7 +1,7 @@
 <?php
-namespace Core;
+namespace Apricot;
 
-use Core\Foundation\CallStatic;
+use Apricot\Foundation\CallStatic;
 
 /**
  * Debug Class - LoggerInterface Wrapper
@@ -26,6 +26,6 @@ class Debug extends CallStatic
     public static function getInstance()
     {
         // DebugBarの作成
-        return \Core\DebugBar::getCollector('messages');
+        return DebugBar::getCollector('messages');
     }
 }

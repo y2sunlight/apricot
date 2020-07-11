@@ -2,12 +2,10 @@
 
 namespace App\Exceptions;
 
-use Exception;
-
 /**
  * アプリケーション例外
  */
-class ApplicationException extends Exception
+class ApplicationException extends \Exception
 {
     /**
      * User error message

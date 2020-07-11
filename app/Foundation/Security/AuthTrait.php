@@ -2,7 +2,7 @@
 namespace App\Foundation\Security;
 
 use ORM;
-use Core\Log;
+use Apricot\Log;
 
 /**
  * Authenticatable User
@@ -13,7 +13,7 @@ trait AuthTrait
     /**
      * Get authentication name
      * {@inheritDoc}
-     * @see \Core\Foundation\Security\Authenticatable::getAuthName()
+     * @see \Apricot\Foundation\Security\Authenticatable::getAuthName()
      */
     public function getAuthName(): string
     {
@@ -23,7 +23,7 @@ trait AuthTrait
     /**
      * Authenticate user
      * {@inheritDoc}
-     * @see \Core\Foundation\Security\Authenticatable::authenticateUser()
+     * @see \Apricot\Foundation\Security\Authenticatable::authenticateUser()
      */
     public function authenticateUser(string $account, string $password)
     {
@@ -44,7 +44,7 @@ trait AuthTrait
     /**
      * Remember user
      * {@inheritDoc}
-     * @see \Core\Foundation\Security\Authenticatable::rememberUser()
+     * @see \Apricot\Foundation\Security\Authenticatable::rememberUser()
      */
     public function rememberUser(string $remenber_token)
     {
@@ -65,7 +65,7 @@ trait AuthTrait
     /**
      * Retrieve user
      * {@inheritDoc}
-     * @see \Core\Foundation\Security\Authenticatable::retrieveUser()
+     * @see \Apricot\Foundation\Security\Authenticatable::retrieveUser()
      */
     public function retrieveUser(object $user)
     {
@@ -80,7 +80,7 @@ trait AuthTrait
     /**
      * Save remenber token
      * {@inheritDoc}
-     * @see \Core\Foundation\Security\Authenticatable::saveRemenberToken()
+     * @see \Apricot\Foundation\Security\Authenticatable::saveRemenberToken()
      */
     public function saveRemenberToken(object $user, string $remenber_token): bool
     {

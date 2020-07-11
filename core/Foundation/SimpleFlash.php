@@ -1,7 +1,7 @@
 <?php
-namespace Core\Foundation;
+namespace Apricot\Foundation;
 
-use Core\Debug;
+use Apricot\Debug;
 
 /**
  * Very Simple Flash Class

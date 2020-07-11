@@ -10,7 +10,7 @@ return function():bool
         //----------------------------
         // デバッグ用のエラーハンドラー
         //----------------------------
-        $whoops->pushHandler(new \Core\Derivations\PrettyErrorHandlerWithLogger);
+        $whoops->pushHandler(new Apricot\Derivations\PrettyErrorHandlerWithLogger);
     }
     else
     {
@@ -20,7 +20,7 @@ return function():bool
         $whoops->pushHandler(function($exception, $inspector, $run)
         {
             // エラーログ出力
-            \Core\Log::critical($exception->getMessage(),[$exception->getFile(),$exception->getLine(), $exception->getTraceAsString()]);
+            Apricot\Log::critical($exception->getMessage(),[$exception->getFile(),$exception->getLine(), $exception->getTraceAsString()]);
 
             // ユーザ向けエラー画面の表示
             // TODO: ここは例外のループを抑止しなかればならない

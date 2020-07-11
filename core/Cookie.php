@@ -1,8 +1,8 @@
 <?php
-namespace Core;
+namespace Apricot;
 
-use Core\Foundation\Singleton;
-use Core\Foundation\SimpleCookie;
+use Apricot\Foundation\Singleton;
+use Apricot\Foundation\SimpleCookie;
 
 /**
  * Lang Class - SimpleCookie($_COOKIE) Wrapper

@@ -1,5 +1,5 @@
 <?php
-namespace Core\Foundation;
+namespace Apricot\Foundation;
 
 /**
  * Request ActionInvoker Class
@@ -40,7 +40,7 @@ class ActionInvoker implements Invoker
     /**
      * Invoke action
      * {@inheritDoc}
-     * @see \Core\Foundation\Invoker::invoke()
+     * @see \Apricot\Foundation\Invoker::invoke()
      */
     public function invoke() : Response
     {

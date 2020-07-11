@@ -1,13 +1,13 @@
 <?php
-namespace Core\Foundation\Response;
+namespace Apricot\Foundation\Response;
 
-use Core\Flash;
-use Core\Foundation\ErrorBag;
+use Apricot\Flash;
+use Apricot\Foundation\ErrorBag;
 
 /**
  * Redirected Response Class
  */
-class RedirectResponse extends \Core\Foundation\Response
+class RedirectResponse extends \Apricot\Foundation\Response
 {
     /**
      * Create RedirectResponse
@@ -36,13 +36,13 @@ class RedirectResponse extends \Core\Foundation\Response
      */
     public function withInputs():RedirectResponse
     {
-        $this->addFlash(self::FLASH_KEY_OLD, \Core\Input::getRawData());
+        $this->addFlash(self::FLASH_KEY_OLD, \Apricot\Input::getRawData());
         return $this;
     }
 
     /**
      * withErrors
-     * @param  \Core\Foundation\ErrorBag $message
+     * @param  \Apricot\Foundation\ErrorBag $message
      * @return RedirectResponse
      */
     public function withErrors(ErrorBag $errorBag):RedirectResponse

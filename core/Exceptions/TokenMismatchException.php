@@ -1,5 +1,5 @@
 <?php
-namespace Core\Exceptions;
+namespace Apricot\Exceptions;
 
 /**
  * Token Mismatch Exception

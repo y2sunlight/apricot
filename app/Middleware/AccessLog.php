@@ -1,11 +1,11 @@
 <?php
 namespace App\Middleware;
 
-use Core\Log;
-use Core\Input;
-use Core\Foundation\Response;
-use Core\Foundation\Invoker;
-use Core\Foundation\Middleware\Middleware;
+use Apricot\Log;
+use Apricot\Input;
+use Apricot\Foundation\Response;
+use Apricot\Foundation\Invoker;
+use Apricot\Foundation\Middleware\Middleware;
 
 /**
  * アクセスログ - Middleware
@@ -15,7 +15,7 @@ class AccessLog implements Middleware
     /**
      * Process incoming requests and produces a response
      * {@inheritDoc}
-     * @see \Core\Foundation\Middleware\Middleware::invoke()
+     * @see \Apricot\Foundation\Middleware\Middleware::invoke()
      */
     public function process(Invoker $next): Response
     {

@@ -4,7 +4,7 @@
 //-------------------------------------------------------------------
 return function (FastRoute\RouteCollector $r)
 {
-    $base = Core\Application::getInstance()->getRouteBase();
+    $base = Apricot\Application::getInstance()->getRouteBase();
     $r->addGroup($base, function (FastRoute\RouteCollector $r) use($base)
     {
         // Auth

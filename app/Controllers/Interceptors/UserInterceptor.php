@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers\Interceptors;
 
-use Core\Input;
+use Apricot\Input;
 use App\Foundation\Controller;
 use App\Foundation\ValidatorErrorBag;
 
@@ -12,7 +12,7 @@ class UserInterceptor
 {
     /**
      * ユーザレコード挿入
-     * @return void|\Core\Foundation\Response return Response if failed
+     * @return void|\Apricot\Foundation\Response return Response if failed
      */
     public function insert(Controller $controller)
     {
@@ -41,7 +41,7 @@ class UserInterceptor
     /**
      * ユーザレコード更新
      * @param int $id
-     * @return void|\Core\Foundation\Response return Response if failed
+     * @return void|\Apricot\Foundation\Response return Response if failed
      */
     public function update(Controller $controller, int $id)
     {

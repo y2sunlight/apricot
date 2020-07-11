@@ -1,8 +1,8 @@
 <?php
-namespace Core;
+namespace Apricot;
 
-use Core\Foundation\Singleton;
-use Core\Foundation\SimpleSession;
+use Apricot\Foundation\Singleton;
+use Apricot\Foundation\SimpleSession;
 
 /**
  * Session Class - SimpleSession Wrapper
@@ -15,7 +15,7 @@ use Core\Foundation\SimpleSession;
  * @method static void clear()
  * @method static void remove(string $key)
  * @method static void destroy()
- * @method static \Core\Foundation\SimpleFlash flash()
+ * @method static \Apricot\Foundation\SimpleFlash flash()
  */
 class Session extends Singleton
 {

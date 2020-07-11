@@ -5,15 +5,15 @@
 return function():bool
 {
     // @now directive
-    \Core\View::directive('now', function()
+    Apricot\View::directive('now', function()
     {
         return "<?php echo date('Y-m-d H:i'); ?>";
     });
 
     // @csrf directive
-    \Core\View::directive('csrf', function()
+    Apricot\View::directive('csrf', function()
     {
-        $name = \Core\Foundation\Security\CsrfToken::CSRF_KEY;
+        $name = Apricot\Foundation\Security\CsrfToken::CSRF_KEY;
         return '<input name="'.$name.'" type="hidden" value="{{Session(\''.$name.'\')}}">';
     });
 

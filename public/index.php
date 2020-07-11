@@ -13,10 +13,10 @@ $public_path = __DIR__;
 //-------------------------------------------------------------------
 // アプリケーション初期化
 //-------------------------------------------------------------------
-$application = new Core\Application($project_path, $public_path);
+$application = new Apricot\Application($project_path, $public_path);
 
 // セッション開始
-Core\Session::start();
+Apricot\Session::start();
 
 // アプリケーションセットアップ
 $application->setup(require_once config_dir('app.php'));

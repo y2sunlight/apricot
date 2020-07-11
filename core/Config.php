@@ -1,8 +1,8 @@
 <?php
-namespace Core;
+namespace Apricot;
 
-use Core\Foundation\Singleton;
-use Core\Foundation\Configuration;
+use Apricot\Foundation\Singleton;
+use Apricot\Foundation\Configuration;
 
 /**
  * Config Class - Configuration Wrapper

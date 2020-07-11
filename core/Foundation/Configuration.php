@@ -1,5 +1,5 @@
 <?php
-namespace Core\Foundation;
+namespace Apricot\Foundation;
 
 /**
  * Improvised Configuration Class

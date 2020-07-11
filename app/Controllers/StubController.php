@@ -11,7 +11,7 @@ class StubController extends Controller
 {
     /**
      * Stub Page
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function index(int $no=null)
     {

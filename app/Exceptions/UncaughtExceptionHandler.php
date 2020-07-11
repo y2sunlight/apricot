@@ -12,12 +12,12 @@ class UncaughtExceptionHandler
      */
     public function render(\Throwable $exception)
     {
-        if ($exception instanceof \Core\Exceptions\TokenMismatchException)
+        if ($exception instanceof \Apricot\Exceptions\TokenMismatchException)
         {
             // CSRFエラーなどのトークンエラーは419(Page Expired)
             $status_code = 419;
         }
-        elseif ($exception instanceof \Core\Exceptions\HttpException)
+        elseif ($exception instanceof \Apricot\Exceptions\HttpException)
         {
             $status_code = $exception->getStatusCode();
         }

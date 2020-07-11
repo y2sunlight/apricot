@@ -22,7 +22,7 @@ return function():bool
         'logger' => function($log_string, $query_time)
         {
             // SQL debug logging
-            \Core\Log::info("SQL",[$log_string]);
+            Apricot\Log::info("SQL",[$log_string]);
     },
     ]);
 

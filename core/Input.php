@@ -1,8 +1,8 @@
 <?php
-namespace Core;
+namespace Apricot;
 
-use Core\Foundation\Singleton;
-use Core\Foundation\SimpleInput;
+use Apricot\Foundation\Singleton;
+use Apricot\Foundation\SimpleInput;
 
 /**
  * Input Class - SimpleInput Wrapper($_POST or $_GET depending on the method)

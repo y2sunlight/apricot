@@ -1,5 +1,5 @@
 <?php
-namespace Core\Foundation;
+namespace Apricot\Foundation;
 
 /**
  * Request Controller Class (Controller Base)
@@ -20,7 +20,7 @@ class BaseController
      */
     protected function intercept($actionName, $interceptors)
     {
-        if ($actionName == \Core\Application::getInstance()->getActionName())
+        if ($actionName == \Apricot\Application::getInstance()->getActionName())
         {
             $interceptor_arr = is_array($interceptors) ? $interceptors : array_slice(func_get_args(),1);
             $this->interceptors = array_merge($this->interceptors , $interceptor_arr);
@@ -31,7 +31,7 @@ class BaseController
      * Call real Action
      * @param string $actionName
      * @param array $params
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     protected function callAction($actionName, $params)
     {
@@ -42,7 +42,7 @@ class BaseController
      * Invoke Action
      * @param string $actionName
      * @param array $params
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function invokeAction($actionName, $params)
     {
@@ -76,7 +76,7 @@ class BaseController
                 $response = call_user_func_array(array($instance, $method), $iparams);
             }
 
-            if ($response instanceof \Core\Foundation\Response)
+            if ($response instanceof Response)
             {
                 return $response;
             }

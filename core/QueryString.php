@@ -1,8 +1,8 @@
 <?php
-namespace Core;
+namespace Apricot;
 
-use Core\Foundation\Singleton;
-use Core\Foundation\SimpleInput;
+use Apricot\Foundation\Singleton;
+use Apricot\Foundation\SimpleInput;
 
 /**
  * QueryString Class - SimpleInput Wrapper($_GET only)

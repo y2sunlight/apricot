@@ -1,9 +1,9 @@
 <?php
 namespace App\Middleware\Auth;
 
-use Core\Foundation\Response;
-use Core\Foundation\Invoker;
-use Core\Foundation\Middleware\Middleware;
+use Apricot\Foundation\Response;
+use Apricot\Foundation\Invoker;
+use Apricot\Foundation\Middleware\Middleware;
 use App\Foundation\Security\AuthUser;
 
 /**
@@ -21,7 +21,7 @@ class BasicAuth implements Middleware
     /**
      * Process incoming requests and produces a response
      * {@inheritDoc}
-     * @see \Core\Foundation\Middleware\Middleware::invoke()
+     * @see \Apricot\Foundation\Middleware\Middleware::invoke()
      */
     public function process(Invoker $next): Response
     {

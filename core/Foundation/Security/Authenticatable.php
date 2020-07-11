@@ -1,5 +1,5 @@
 <?php
-namespace Core\Foundation\Security;
+namespace Apricot\Foundation\Security;
 
 /**
  * Authenticatable interface

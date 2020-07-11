@@ -1,7 +1,7 @@
 <?php
 namespace App\Foundation;
 
-use Core\Foundation\Singleton;
+use Apricot\Foundation\Singleton;
 use App\Provider;
 
 /**

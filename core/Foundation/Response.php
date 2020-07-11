@@ -1,7 +1,7 @@
 <?php
-namespace Core\Foundation;
+namespace Apricot\Foundation;
 
-use Core\Session;
+use Apricot\Session;
 
 /**
  * Improvised Response Class

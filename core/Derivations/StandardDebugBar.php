@@ -1,5 +1,5 @@
 <?php
-namespace Core\Derivations;
+namespace Apricot\Derivations;
 
 use DebugBar\DataCollector\DataCollectorInterface;
 

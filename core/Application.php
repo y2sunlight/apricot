@@ -1,5 +1,5 @@
 <?php
-namespace Core;
+namespace Apricot;
 
 /**
  * Application Class
@@ -96,7 +96,7 @@ class Application
 
     /**
      * Get Application instance.
-     * @return \Core\Application
+     * @return \Apricot\Application
      */
     static public function getInstance():Application
     {
@@ -249,14 +249,14 @@ class Application
     private function executeAction(string $controllerName, string $actionName, array $params=[])
     {
         // Create ActionInvoker
-        $action = new \Core\Foundation\ActionInvoker($controllerName, $actionName, $params);
+        $action = new Foundation\ActionInvoker($controllerName, $actionName, $params);
 
         // Create Middleware pipeline
-        $pipeline = new \Core\Foundation\Middleware\MiddlewarePipeline($this->app['middleware']);
+        $pipeline = new Foundation\Middleware\MiddlewarePipeline($this->app['middleware']);
 
         // Ecexute action
         $response = $pipeline->executeAction($action);
-        if ($response instanceof \Core\Foundation\Response)
+        if ($response instanceof Foundation\Response)
         {
             $response->commit();
         }

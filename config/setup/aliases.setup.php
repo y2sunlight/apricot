@@ -6,22 +6,22 @@ return function():bool
 {
     $aliases =
     [
-        /* Core */
-        'Input' => \Core\Input::class,
-        'QueryString' => \Core\QueryString::class,
-        'Session' => \Core\Session::class,
-        'Flash' => \Core\Flash::class,
-        'Cookie' => \Core\Cookie::class,
-        'Config' => \Core\Config::class,
-        'Log' => \Core\Log::class,
-        'Debug' => \Core\Debug::class,
-        'DebugBar' => \Core\DebugBar::class,
-        'ErrorBag' => \Core\Foundation\ErrorBag::class,
+        /* Apricot */
+        'Input' => Apricot\Input::class,
+        'QueryString' => Apricot\QueryString::class,
+        'Session' => Apricot\Session::class,
+        'Flash' => Apricot\Flash::class,
+        'Cookie' => Apricot\Cookie::class,
+        'Config' => Apricot\Config::class,
+        'Log' => Apricot\Log::class,
+        'Debug' => Apricot\Debug::class,
+        'DebugBar' => Apricot\DebugBar::class,
+        'ErrorBag' => Apricot\Foundation\ErrorBag::class,
 
         /* App */
-        'ViewHelper' => \App\Helpers\ViewHelper::class,
-        'ValidatorErrorBag' => \App\Foundation\ValidatorErrorBag::class,
-        'AuthUser' => \App\Foundation\Security\AuthUser::class,
+        'ViewHelper' => App\Helpers\ViewHelper::class,
+        'ValidatorErrorBag' => App\Foundation\ValidatorErrorBag::class,
+        'AuthUser' => App\Foundation\Security\AuthUser::class,
     ];
 
     // Creates an alias for a class

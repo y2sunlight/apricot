@@ -1,5 +1,5 @@
 <?php
-namespace Core\Foundation;
+namespace Apricot\Foundation;
 
 /**
  * Very Simple Session Class - $_SESSION Wrapper
@@ -28,11 +28,11 @@ class SimpleSession
                 try
                 {
                     ini_set("session.{$key}", $value);
-                    \Core\Debug::debug("ini_set(session.{$key})=".ini_get("session.{$key}"));
+                    \Apricot\Debug::debug("ini_set(session.{$key})=".ini_get("session.{$key}"));
                 }
                 catch(\Throwable $e)
                 {
-                    \Core\Debug::error("ini_set(session)",[$key,$value]);
+                    \Apricot\Debug::error("ini_set(session)",[$key,$value]);
                 };
             }
         }
@@ -132,7 +132,7 @@ class SimpleSession
 
     /**
      * Get flash data
-     * @return \Core\Foundation\SimpleFlash
+     * @return \Apricot\Foundation\SimpleFlash
      */
     public function flash()
     {

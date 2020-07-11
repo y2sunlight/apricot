@@ -1,8 +1,8 @@
 <?php
 namespace App\Controllers;
 
-use Core\Input;
-use Core\Foundation\ErrorBag;
+use Apricot\Input;
+use Apricot\Foundation\ErrorBag;
 use App\Foundation\Security\AuthUser;
 use App\Foundation\Controller;
 use App\Foundation\ValidatorErrorBag;
@@ -36,7 +36,7 @@ class AuthController extends Controller
 
     /**
      * ログインフォーム表示
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function showForm()
     {
@@ -57,7 +57,7 @@ class AuthController extends Controller
 
     /**
      * ログイン(ユーザ認証)
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function login()
     {
@@ -76,7 +76,7 @@ class AuthController extends Controller
 
     /**
      * ログアウト
-     * @return \Core\Foundation\Response
+     * @return \Apricot\Foundation\Response
      */
     public function logout()
     {
