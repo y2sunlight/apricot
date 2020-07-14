@@ -6,17 +6,26 @@ namespace Apricot\Foundation;
  */
 class Translation
 {
-    /*
+    /**
+     * language code(ISO 639-1)
+     * @var string
+     */
+    private $lang;
+
+    /**
      * Messages
+     * @var array
      */
     private $messages = [];
 
-    /*
-     * Create Translation
-     * @param string $lang
+    /**
+     * Create Translation.
+     * @param string $lang language code(ISO 639-1)
      */
-    public function __construct(string $lang='ja')
+    public function __construct(string $lang='en')
     {
+        $this->lang = $lang;
+
         // Read Messages
         foreach(glob(assets_dir("lang/{$lang}/*.php")) as $file)
         {
@@ -26,7 +35,16 @@ class Translation
     }
 
     /**
-     * Checks if a key is present
+     * Get language code(ISO 639-1).
+     * @return string
+     */
+    public function getLangCode():string
+    {
+        return $this->lang;
+    }
+
+    /**
+     * Checks if a key is present.
      * @param string $key
      * @return bool
      */

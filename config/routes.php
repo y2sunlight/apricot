@@ -22,7 +22,7 @@ return function (FastRoute\RouteCollector $r)
 
         // Home
         $r->get ('/home', 'HomeController@index');
-        $r->get('/', function() use($base){
+        $r->get('[/]', function() use($base){
             header("Location: " . $base.'/home');
         });
 

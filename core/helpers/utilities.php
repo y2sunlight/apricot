@@ -173,8 +173,42 @@ function file_get_sql(string $filename):array
     array_walk($sql, function(&$item){
         $item = trim($item);
     });
-        $sql = array_filter($sql, function($val){
-            return !empty(trim($val));
-        });
-            return $sql;
+    $sql = array_filter($sql, function($val){
+        return !empty(trim($val));
+    });
+    return $sql;
+}
+
+/**
+ * Recursive Copy
+ * @param string $src source directory
+ * @param string $dst destination directory
+ */
+function recursive_copy(string $src, string $dst)
+{
+    if (!file_exists($dst))
+    {
+        if (@mkdir($dst) === false) return;
+    }
+
+    $dir = @opendir($src);
+    if($dir === false) return;
+
+    while(false !== ($file = @readdir($dir)))
+    {
+        if(($file != '.')&&($file != '..'))
+        {
+            $src_file = "{$src}/{$file}";
+            $dst_file = "{$dst}/{$file}";
+            if(is_dir($src_file) && is_readable($src_file))
+            {
+                recursive_copy($src_file, $dst_file);
+            }
+            elseif(is_file($src_file) && is_writable($dst))
+            {
+                @copy($src_file, $dst_file);
+            }
+        }
+    }
+    @closedir($dir);
 }

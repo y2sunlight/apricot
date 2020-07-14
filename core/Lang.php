@@ -7,9 +7,10 @@ use Apricot\Foundation\Translation;
 /**
  * Lang Class - Translation Wrapper
  *
- * @method static Translation getInstance();
- * @method static bool has(string $key)
- * @method static string get(string $key, array $params = [])
+ * @method static Translation getInstance() Create Translation.
+ * @method static string getLangCode() Get language code(ISO 639-1).
+ * @method static bool has(string $key) Checks if a key is present.
+ * @method static string get(string $key, array $params = []) et a value from the Messages.
  */
 class Lang extends Singleton
 {
