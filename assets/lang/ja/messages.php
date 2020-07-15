@@ -55,7 +55,7 @@ return [
             'hint_note'=>'必要な場合は入力して下さい',
             'btn_back'=>'戻る',
             'btn_cancel'=>'キャンセル',
-            'btn_insert'=>'保存',
+            'btn_insert'=>'登録',
 
         ],
         'edit'=>[

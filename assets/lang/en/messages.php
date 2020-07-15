@@ -1,0 +1,81 @@
+<?php
+return [
+    'app'=>[
+        'title'=>env('APP_NAME'),
+        'menu'=>[
+            'menu1'=>'Users',
+            'menu2'=>'Menu2',
+            'menu3'=>'Menu3',
+            'logout'=>'Logout',
+            'about_me'=>'About Me',
+        ],
+    ],
+    'success' => [
+        'db' => [
+            'insert' => 'The data has been registered',
+            'update' => 'The data has been updated',
+            'delete' => 'The data has been deleted',
+        ],
+    ],
+    'error'=>[
+        'unknown'=>'An error occurred',
+        'db' => [
+            'access' => 'Data access failed',
+            'insert' => 'Data registration failed',
+            'update' => 'Data update failed',
+            'delete' => 'Data deletion failed',
+            'optimisstic_lock'=>'Data is being updated by another user',
+        ],
+    ],
+    'home'=>[
+        'title'=>env('APP_NAME'),
+        'msg_hello'=>'Hello, :account !',
+    ],
+    'user'=>[
+        'index'=> [
+            'title'=>'List of users',
+            'id'=>'ID',
+            'account'=>'Account',
+            'email'=>'Email',
+            'note'=>'Note',
+            'created_at'=>'Created at',
+            'btn_new'=>'New',
+        ],
+        'create'=>[
+            'title'=>'Register new user',
+            'account'=>'Account',
+            'password'=>'Password',
+            'password_confirmation'=>'Confirm Password',
+            'email'=>'Email',
+            'note'=>'Note',
+            'hint_account'=>'Please enter in alphanumeric characters',
+            'hint_password'=>'Please enter the password',
+            'hint_password_confirmation'=>'Re-enter password',
+            'hint_email'=>'apricot@sample.com',
+            'hint_note'=>'Please enter if required',
+            'btn_back'=>'Back',
+            'btn_cancel'=>'Cancel',
+            'btn_insert'=>'Register',
+
+        ],
+        'edit'=>[
+            'title'=>'Edit user',
+            'account'=>'Account',
+            'password'=>'Password',
+            'password_confirmation'=>'Confirm Password',
+            'email'=>'Email',
+            'note'=>'Note',
+            'created_at'=>'Created at',
+            'updated_at'=>'Updated at',
+            'hint_password'=>'Enter if you want to change',
+            'hint_password_confirmation'=>'Re-enter password',
+            'hint_email'=>'apricot@sample.com',
+            'hint_note'=>'Please enter if required',
+            'btn_back'=>'Back',
+            'btn_delete'=>'Delete',
+            'btn_cancel'=>'Cancel',
+            'btn_update'=>'Save',
+            'msg_delete'=>'Do you want to delete it?',
+        ],
+    ],
+];
