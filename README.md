@@ -3,7 +3,13 @@ Apricot is a PHP mini-framework (non-packaged version) for quickly creating simp
 
 ## Installation
 
-You can install manually as follows:
+It's recommended that you use Composer to install Apricot.
+
+```
+composer create-project y2sunlight/apricot your-project
+```
+
+Or you can install it manually as follows:
 
 ```
 git clone https://github.com/y2sunlight/apricot your-project
