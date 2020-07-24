@@ -1,8 +1,8 @@
 {
     "name": "y2sunlight/apricot",
     "type": "project",
-    "description": "Apricot is a PHP mini-framework (non-packaged version) for quickly creating simple applications.",
-    "keywords": ["php","framework","mini","non-packaged"],
+    "description": "Apricot is a PHP mini-framework for quickly creating simple applications.",
+    "keywords": ["php","framework","mini","micro"],
     "homepage": "http://y2sunlight.com/ground/doku.php?id=apricot:top",
     "license": "MIT",
     "authors": [
@@ -26,12 +26,16 @@
     },
     "autoload" : {
         "psr-4" : {
-            "App\\" : "app/",
             "Apricot\\" : "core/"
         },
         "files": [
             "core/helpers/utilities.php",
             "core/helpers/boilerplates.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-4" : {
+            "App\\" : "app/"
+        },
     }
 }
