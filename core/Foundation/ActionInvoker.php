@@ -2,30 +2,28 @@
 namespace Apricot\Foundation;
 
 /**
- * Request ActionInvoker Class
+ * Request Action Invoker Class
  */
 class ActionInvoker implements Invoker
 {
     /**
-     * Controller name
-     * @var string;
+     * @var string Controller name
      */
     private $controller;
 
     /**
-     * method name
-     * @var string
+     * @var string action(method) name
      */
     private $action;
 
     /**
-     * parameters
-     * @var array
+     * @var array parameters
      */
     private $params;
 
     /**
-     * Create ActionInvoker
+     * Creates an action invoker.
+     *
      * @param string $controller
      * @param string $action
      * @param array $params
@@ -38,7 +36,8 @@ class ActionInvoker implements Invoker
     }
 
     /**
-     * Invoke action
+     * Invokes the action.
+     *
      * {@inheritDoc}
      * @see \Apricot\Foundation\Invoker::invoke()
      */

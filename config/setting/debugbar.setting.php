@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file contains DebugBer settings.
+ */
 return
 [
     'debug' => env('APP_DEBUG',false),

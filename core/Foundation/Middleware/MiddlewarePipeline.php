@@ -3,16 +3,19 @@ namespace Apricot\Foundation\Middleware;
 
 use Apricot\Foundation\ActionInvoker;
 
+/**
+ * Middleware Pipeline Class
+ */
 class MiddlewarePipeline
 {
     /**
-     * Middleware
      * @var Middleware[]
      */
     private $middleware = [];
 
     /**
-     * Create
+     * Creates a Middleware pipeline.
+     *
      * @param Middleware[] $middleware
      */
     public function __construct(array $middleware=[])
@@ -24,7 +27,8 @@ class MiddlewarePipeline
     }
 
     /**
-     * Add middleware
+     * Adds a middleware.
+     *
      * @param Middleware $middleware
      */
     public function addMiddleware(Middleware $middleware)
@@ -34,7 +38,8 @@ class MiddlewarePipeline
     }
 
     /**
-     * Execute action
+     * Executes an action.
+     *
      * @param ActionInvoker $action
      * @return \Apricot\Foundation\Response
      */

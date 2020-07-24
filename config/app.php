@@ -1,18 +1,21 @@
 <?php
+/**
+ * This file contains application settings.
+ */
 return
 [
     'setup' =>[
-        config_dir('setup/whoops.setup.php'),    /* Error handler(whoops) */
+        config_dir('setup/whoops.setup.php'),    /* Error handler (whoops) */
         config_dir('setup/bladeone.setup.php'),  /* View template (BladeOne) */
         config_dir('setup/aliases.setup.php'),   /* Class aliases for view template and so on */
-        config_dir('setup/idiorm.setup.php'),    /* ORM(idiorm) */
+        config_dir('setup/idiorm.setup.php'),    /* ORM (idiorm) */
         config_dir('setup/validator.setup.php'), /* Valitron\Validator */
     ],
     'middleware' =>[
         \App\Middleware\AccessLog::class,        /* Access log */
         \App\Middleware\VerifyCsrfToken::class,  /* Verify CSRF Token */
-//      \App\Middleware\Auth\BasicAuth::class,   /* Basic Auth. */
-        \App\Middleware\Auth\SessionAuth::class, /* Session Auth. */
+//      \App\Middleware\Auth\BasicAuth::class,   /* Basic authentication */
+        \App\Middleware\Auth\SessionAuth::class, /* Session authentication */
     ],
     'csrf' =>[
         'disposable' => false,

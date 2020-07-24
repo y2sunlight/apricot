@@ -7,18 +7,18 @@ use Apricot\Foundation\ErrorBag;
 use ORM;
 
 /**
- * コントローラ
+ * Controller class
  */
 class Controller extends BaseController
 {
     /**
-     * Transactional Actions
-     * @var array
+     * @var array Transactional actions
      */
     protected $transactionalActions = [];
 
     /**
-     * Register transactional action on the controller.
+     * Registers transactional actions on the controller.
+     *
      * @param  array|string $actionName
      */
     protected function transactional($actionName)

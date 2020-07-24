@@ -1,7 +1,7 @@
-{{-- 親レイアウト --}}
+{{-- Parent layout --}}
 @extends('layout')
 
-{{-- 追加スクリプト --}}
+{{-- Additional script --}}
 @push('scripts')
 <script type="text/javascript">
 $(function(){
@@ -12,10 +12,10 @@ $(function(){
 </script>
 @endpush
 
-{{-- タイトル --}}
+{{-- title --}}
 @section('title', __('messages.user.index.title'))
 
-{{-- コンテンツ --}}
+{{--content --}}
 @section('content')
 <div class="table-responsive">
     <table class="table table-hover">

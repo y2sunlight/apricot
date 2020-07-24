@@ -1,6 +1,7 @@
 <?php
 /**
- * Add path
+ * Adds a subpath to the base path.
+ *
  * @param string $base Base path
  * @param string $path Sub path, if necessary
  * @return string path
@@ -11,10 +12,11 @@ function add_path(string $base, string $path = null) : string
 }
 
 /**
- * Convert a multi-dimensional associative array to a Dot-notation array
+ * Converts a multi-dimensional associative array to a dot-notation array.
+ *
  * @param  array   $hash multi-dimensional associative array
  * @param  string  $prepend
- * @return array   a Dot-notation array
+ * @return array   a dot-notation array
  */
 function array_dot(array $hash, $prepend = '')
 {
@@ -34,7 +36,8 @@ function array_dot(array $hash, $prepend = '')
 }
 
 /**
- * Get an item from an array using Dot-notation
+ * Gets an item from an array using dot-notation.
+ *
  * @param  array $hash multi-dimensional associative array
  * @param  string $dot key using Dot-notation
  * @param  mixed $default
@@ -60,7 +63,8 @@ function array_get(array $hash, string $dot=null, $default=null)
 }
 
 /**
- * Checks if a key is present in an array using Dot-notation
+ * Checks if a key is present in an array using dot-notation.
+ *
  * @param  array $hash multi-dimensional associative array
  * @param  string $dot key using Dot-notation
  * @return bool
@@ -83,7 +87,8 @@ function array_has(array $hash, string $dot):bool
 }
 
 /**
- * Get a subset of the input for only specified items
+ * Gets a subset of inputs for the specified item only.
+ *
  * @param array $input
  * @param array|mixed $keys
  * @return array subset of the input
@@ -101,7 +106,8 @@ function array_only(array $input, $keys)
 }
 
 /**
- * Get a subset of the input except for specified items
+ * Gets a subset of the inputs except specified items.
+ *
  * @param array $input
  * @param array|mixed $keys
  * @return array subset of the input
@@ -119,7 +125,8 @@ function array_except(array $input, $keys=null)
 }
 
 /**
- * Generate random numbers
+ * This function generates a random number.
+ *
  * @param number $length
  * @return string
  */
@@ -129,7 +136,8 @@ function str_random($length = 32)
 }
 
 /**
- * Get short class name
+ * Gets the short class name.
+ *
  * @param object $object
  * @return string
  */
@@ -139,7 +147,8 @@ function get_short_class_name($object)
 }
 
 /**
- * Get snake_case from UpperCamelCase or lowerCamelCase
+ * Converts the gived string(UpperCamelCase or lowerCamelCase) to snake_case.
+ *
  * @param string $camel
  * @return string|null
  */
@@ -152,7 +161,8 @@ function snake_case(string $camel =null)
 }
 
 /**
- * Get SQL text from a file
+ * Gets SQL text from a file.
+ *
  * @param string $filename
  * @return array
  */
@@ -180,7 +190,8 @@ function file_get_sql(string $filename):array
 }
 
 /**
- * Recursive Copy
+ * This function copies directories recursively.
+ *
  * @param string $src source directory
  * @param string $dst destination directory
  */

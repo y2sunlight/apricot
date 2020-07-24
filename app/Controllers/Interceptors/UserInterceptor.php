@@ -6,12 +6,13 @@ use App\Foundation\Controller;
 use App\Foundation\ValidatorErrorBag;
 
 /**
- * ユーザインターセプタ―
+ * User Interceptor
  */
 class UserInterceptor
 {
     /**
-     * ユーザレコード挿入
+     * Interceptor for insert method.
+     *
      * @return void|\Apricot\Foundation\Response return Response if failed
      */
     public function insert(Controller $controller)
@@ -39,7 +40,8 @@ class UserInterceptor
     }
 
     /**
-     * ユーザレコード更新
+     * Interceptor for update method.
+     *
      * @param int $id
      * @return void|\Apricot\Foundation\Response return Response if failed
      */

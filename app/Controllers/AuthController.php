@@ -8,13 +8,16 @@ use App\Foundation\Controller;
 use App\Foundation\ValidatorErrorBag;
 
 /**
- * Authコントローラ
+ * Authentication Controller
  */
 class AuthController extends Controller
 {
+    /**
+     * Create a Authentication controller.
+     */
     public function __construct()
     {
-        // インターセプターの登録
+        // Register the interceptor
         $this->intercept('login', function(Controller $controller)
         {
             $inputs = Input::all();
@@ -35,20 +38,21 @@ class AuthController extends Controller
     }
 
     /**
-     * ログインフォーム表示
+     * Shows the login form.
+     *
      * @return \Apricot\Foundation\Response
      */
     public function showForm()
     {
         if (AuthUser::check())
         {
-            // 認証済ならトップ画面表示
+            // Top page display if authenticated
             return redirect(route(''));
         }
 
         if (AuthUser::remember())
         {
-            // 自動認証できたらトップ画面表示
+            // Top page display if automatic authentication is possible
             return redirect(route(''));
         }
 
@@ -56,7 +60,8 @@ class AuthController extends Controller
     }
 
     /**
-     * ログイン(ユーザ認証)
+     * Login (user authentication)
+     *
      * @return \Apricot\Foundation\Response
      */
     public function login()
@@ -65,25 +70,26 @@ class AuthController extends Controller
 
         if (!AuthUser::authenticate($inputs['account'], $inputs['password'], !empty($inputs['remember'])))
         {
-            // ユーザが見つからない
+            // If the user cannot be found
             $errorBag = new ErrorBag([__('auth.login.error.no_account')]);
             return redirect(back())->withInputs()->withErrors($errorBag);
         }
 
-        // ログイン成功
+        // When login is successful
         return redirect(AuthUser::getPathAfterLogin());
     }
 
     /**
-     * ログアウト
+     * Logout
+     *
      * @return \Apricot\Foundation\Response
      */
     public function logout()
     {
-        // セッションの破棄
+        // Destroy the session
         AuthUser::forget();
 
-        // ログイン画面表示
+        // Show the login form
         return redirect(route("login"));
     }
 }

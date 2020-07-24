@@ -7,19 +7,20 @@ use Apricot\Foundation\SimpleInput;
 /**
  * Input Class - SimpleInput Wrapper($_POST or $_GET depending on the method)
  *
- * @method static SimpleInput getInstance()
- * @method static bool has(string $key)
- * @method static string get(string $key, string $default = null)
- * @method static array all()
- * @method static array only(array|mixed $keys)
- * @method static array except(array|mixed $keys)
- * @method static set(string $key, string $vale)
- * @method static remove(string $key)
+ * @method static SimpleInput getInstance() Gets the SimpleInput instance.
+ * @method static bool has(string $key) Checks if the given key is present.
+ * @method static string get(string $key, string $default = null) Gets the input data specified by the key.
+ * @method static array all() Gets all input data.
+ * @method static array only(array|mixed $keys) Gets a subset of inputs for the specified keys only.
+ * @method static array except(array|mixed $keys) Gets a subset of inputs except specified keys.
+ * @method static set(string $key, string $vale) Sets input data.
+ * @method static remove(string $key) Removes the input data specified by the key.
  */
 class Input extends Singleton
 {
     /**
-     * Create SimpleInput instance.
+     * Creates the SimpleInput instance.
+     *
      * @return SimpleInput
      */
     protected static function createInstance()
@@ -29,7 +30,8 @@ class Input extends Singleton
     }
 
     /**
-     * Get raw input data depending on the method
+     * Gets raw input data depending on the method.
+     *
      * @return array
      */
     public static function getRawData()

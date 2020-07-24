@@ -6,18 +6,17 @@ use App\Exceptions\OptimissticLockException;
 use App\Exceptions\ApplicationException;
 
 /**
- * モデル
+ * Model class
  */
 class Model
 {
     /**
-     * 最新の更新結果(insert/update/delete)
-     * @var bool
+     * @var bool Last SQL(insert/update/delete) execution result.
      */
     private $success = false;
 
     /**
-     * テーブル名の取得
+     * Gets the table name
      * @return string
      */
     public function tableName():string
@@ -26,7 +25,8 @@ class Model
     }
 
     /**
-     * テーブルの取得
+     * Returns the ORM instance.
+     *
      * @return \ORM
      */
     public function for_table():ORM
@@ -35,7 +35,8 @@ class Model
     }
 
     /**
-     * 全件検索
+     * Finds all records.
+     *
      * @return array|\IdiormResultSet
      */
     public function findAll()
@@ -44,9 +45,10 @@ class Model
     }
 
     /**
-     * 主キー検索
+     * Finds a record by the primary key.
+     *
      * @param int $id
-     * @return \ORM|false returna single instance of the ORM class, or false if norows were returned.
+     * @return \ORM|false return a single instance of the ORM class, or false if no rows were returned.
      */
     public function findOne(int $id)
     {
@@ -54,7 +56,9 @@ class Model
     }
 
     /**
-     * 新規作成
+     * Creates a new, empty instance of the model class.
+     *
+     * @param array $inputs
      * @return \ORM
      */
     public function create(array $inputs=null):ORM
@@ -63,7 +67,8 @@ class Model
     }
 
     /**
-     * 新規保存
+     * Inserts the input field into the database.
+     *
      * @param array $inputs
      * @return \ORM
      */
@@ -77,30 +82,31 @@ class Model
     }
 
     /**
-     * データ更新
+     * Update the database with the input fields.
+     *
      * @param mixed $id
      * @param array $inputs
      * @return \ORM
      */
     public function update($id, array $inputs):ORM
     {
-        // ApricotではSQLite3.0.8以上の使用を前提としており、トランザクション分離レベルはデフォルト値がDEFERREDです。
-        // DEFERRED は最初の読み取り時に共有ロックが掛かります(SQLiteのロックはデータベースロックです)。
-        // 従って、version_no読み取り後はトランザクション終了まで他の更新は発生しません。
-        // NOTE: 他のデータベースの場合は、ここで行ロックを取得してレコードの検索を行います(select for update)
         $row = $this->for_table()->find_one($id);
         if ($row===false)
         {
+            // Apricot assumes use of SQLite 3.0.8 or higher, so the default value of transaction isolation level is DEFERRED.
+            // At DEFERRED level, a shared lock (database lock) is acquired on the first read.
+            // Therefore, after reading version_no, other updates do not occur until the transaction ends.
+            // Note: For other databases, you can get a row lock here to find the record (that is, "select for update").
             throw new ApplicationException(__('messages.error.db.update'));
         }
 
-        // 楽観的ロックの検証
+        // Optimistic lock verification
         if ($row->version_no != $inputs['version_no'])
         {
             throw new OptimissticLockException();
         }
 
-        // データ更新
+        // Saving the input fields
         $row->set($inputs);
         $row->set_expr('updated_at', "datetime('now','localtime')");
         $row->set_expr('version_no', "version_no+1");
@@ -109,7 +115,8 @@ class Model
     }
 
     /**
-     * データ削除
+     * Deletes the record with the primary key.
+     *
      * @param mixed $id
      * @return \ORM
      */
@@ -125,7 +132,8 @@ class Model
     }
 
     /**
-     * 最新の更新結果の取得(insert/update/delete)
+     * Gets the last SQL execution result.
+     *
      * @return bool
      */
     public function isSuccess():bool

@@ -1,14 +1,14 @@
-{{-- 親レイアウト --}}
+{{-- Parent layout --}}
 @extends('layout')
 
-{{-- 追加スクリプト --}}
+{{-- Additional script --}}
 @push('scripts')
 @endpush
 
-{{-- タイトル --}}
+{{-- title --}}
 @section('title', $title)
 
-{{-- コンテンツ --}}
+{{--content --}}
 @section('content')
     @if(!empty($messages))
       @foreach($messages as $message)

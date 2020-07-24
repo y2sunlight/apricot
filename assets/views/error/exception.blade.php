@@ -1,7 +1,7 @@
-{{-- 親レイアウト --}}
+{{-- Parent layout--}}
 @extends('error.layout')
 
-{{-- コンテンツ --}}
+{{-- content --}}
 @section('content')
     @php
         switch ($status_code) {

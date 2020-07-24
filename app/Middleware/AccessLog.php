@@ -8,20 +8,20 @@ use Apricot\Foundation\Invoker;
 use Apricot\Foundation\Middleware\Middleware;
 
 /**
- * アクセスログ - Middleware
+ * Access Log - Middleware
  */
 class AccessLog implements Middleware
 {
     /**
-     * Process incoming requests and produces a response
      * {@inheritDoc}
      * @see \Apricot\Foundation\Middleware\Middleware::invoke()
      */
     public function process(Invoker $next): Response
     {
+        // Log message
         $message = session_id().' '.$_SERVER['REQUEST_METHOD'].' '.$_SERVER['REQUEST_URI'];
 
-        // 前処理
+        // Log context data
         $data = [
             'remote_addr' => $_SERVER['REMOTE_ADDR'],
             'remote_user' => array_key_exists('REMOTE_USER', $_SERVER) ?$_SERVER['REMOTE_USER'] : 'Anonymous',
@@ -30,7 +30,7 @@ class AccessLog implements Middleware
         ];
         Log::info("$message",$data);
 
-        // 次のInvokerを呼び出す
+        // Call the next Invoker.
         return $next->invoke();
     }
 }

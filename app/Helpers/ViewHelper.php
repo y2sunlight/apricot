@@ -1,10 +1,16 @@
 <?php
 namespace App\Helpers;
 
+/**
+ * View Helper
+ */
 class ViewHelper
 {
     /**
-     * 日時のフォーマット
+     * Returns a formatted date string.
+     *
+     * This method is an example of a view helper.
+     *
      * @param string $datetime
      * @param string $format
      * @return string

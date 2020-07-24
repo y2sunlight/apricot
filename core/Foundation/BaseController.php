@@ -7,13 +7,12 @@ namespace Apricot\Foundation;
 class BaseController
 {
     /**
-     * The interceptors registered on the controller.
-     * @var array
+     * @var array The interceptors registered on the controller.
      */
     protected $interceptors = [];
 
     /**
-     * Register interceptors on the controller.
+     * Registers interceptors on the controller.
      *
      * @param  string $actionName
      * @param  array|mixed $interceptors array or arguments list
@@ -28,7 +27,8 @@ class BaseController
     }
 
     /**
-     * Call real Action
+     * Calls a real Action.
+     *
      * @param string $actionName
      * @param array $params
      * @return \Apricot\Foundation\Response
@@ -39,7 +39,8 @@ class BaseController
     }
 
     /**
-     * Invoke Action
+     * Invokes an Action.
+     *
      * @param string $actionName
      * @param array $params
      * @return \Apricot\Foundation\Response

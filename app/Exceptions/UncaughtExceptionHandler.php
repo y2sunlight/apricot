@@ -7,14 +7,15 @@ namespace App\Exceptions;
 class UncaughtExceptionHandler
 {
     /**
-     * Render uncaught exception
+     * This method renders when an uncaught exception occurs.
+     *
      * @param \Throwable $exception
      */
     public function render(\Throwable $exception)
     {
         if ($exception instanceof \Apricot\Exceptions\TokenMismatchException)
         {
-            // CSRFエラーなどのトークンエラーは419(Page Expired)
+            // For token errors such as CSRF errors, the status code is set to 419 (page expired).
             $status_code = 419;
         }
         elseif ($exception instanceof \Apricot\Exceptions\HttpException)
@@ -23,11 +24,11 @@ class UncaughtExceptionHandler
         }
         else
         {
-            // その他のエラーは500(Internal Server Error)
+            // For any other error, the status code is set to 500 (internal server error).
             $status_code = 500;
         }
 
-        // エラー画面を表示する
+        // Render the error page.
         render('error.exception', ['status_code'=>$status_code])->commit($status_code);
     }
 }

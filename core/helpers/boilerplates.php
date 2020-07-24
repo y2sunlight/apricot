@@ -1,6 +1,7 @@
 <?php
 /**
- * Get Environment Variable
+ * Returns the value of the environment variable specified by the key.
+ *
  * @param string $key
  * @param mixed $default
  * @return mixed environment Variable
@@ -28,7 +29,8 @@ function env($key, $default = null)
 }
 
 /**
- * Abort
+ * Throws an HTTP exception.
+ *
  * @param int $code
  * @param string $message
  * @throws \Apricot\Exceptions\HttpException
@@ -39,8 +41,9 @@ function abort(int $code, string $message=null)
 }
 
 /**
- * Get application setting value
- * @param string|null $dot Dot-notation key
+ * Returns the value of the application setting specified by the dot-notation key.
+ *
+ * @param string|null $dot dot-notation key
  * @param mixed $default
  * @return mixed
  */
@@ -50,8 +53,9 @@ function app($dot = null, $default=null)
 }
 
 /**
- * Checks if an application setting key is present
- * @param string $dot Dot-notation key
+ * Checks if an application setting key is present.
+ *
+ * @param string $dot dot-notation key
  * @return bool
  */
 function app_has($dot = null)
@@ -60,9 +64,10 @@ function app_has($dot = null)
 }
 
 /**
- * Get project directory
- * @param string|null $default
- * @return string project directory
+ * Returns the full pathname in the project directory or its child directory.
+ *
+ * @param string $path Sub path, if necessary
+ * @return string project directory or its children.
  */
 function project_dir($path = null):string
 {
@@ -70,7 +75,8 @@ function project_dir($path = null):string
 }
 
 /**
- * Get config directory
+ * Returns the full pathname in the config directory or its child directory.
+ *
  * @param string $path Sub path, if necessary
  * @return string config directory
  */
@@ -80,7 +86,8 @@ function config_dir($path = null):string
 }
 
 /**
- * Get assets directory
+ * Returns the full pathname in the assets directory or its child directory.
+ *
  * @param string $path Sub path, if necessary
  * @return string assets directory
  */
@@ -90,7 +97,8 @@ function assets_dir($path = null):string
 }
 
 /**
- * Get var directory
+ * Returns the full pathname in the var directory or its child directory.
+ *
  * @param string $path Sub path, if necessary
  * @return string var directory
  */
@@ -100,7 +108,8 @@ function var_dir($path = null):string
 }
 
 /**
- * Get public directory
+ * Returns the full pathname in the public directory or its child directory.
+ *
  * @param string $path Sub path, if necessary
  * @return string public directory
  */
@@ -110,19 +119,21 @@ function public_dir($path = null):string
 }
 
 /**
- * Get application URL
+ * Returns the application URL.
+ *
  * @param string $path Sub path, if necessary
  * @return string URL
  */
 function url($path = null):string
 {
-    // TODO: APP_URLが無い時は、DomainとProtocolから絶対URLを作る
+    // TODO: If there is no APP_URL, I have to create an absolute URL from Domain and Protocol.
     $base = env('APP_URL', Apricot\Application::getInstance()->getRouteBase());
     return add_path($base,$path);
 }
 
 /**
- * Get file URL With version
+ * Returns a file URL with the application version.
+ *
  * @param string $filename
  * @return string URL
  */
@@ -132,7 +143,8 @@ function url_ver(string $filename)
 }
 
 /**
- * Get routing path
+ * Returns the routing path.
+ *
  * @param string $path Sub path, if necessary
  * @return string routing path
  */
@@ -142,7 +154,8 @@ function route($path = null):string
 }
 
 /**
- * Get current controller name
+ * Returns the current controller name.
+ *
  * @return string name
  */
 function controllerName():string
@@ -151,7 +164,8 @@ function controllerName():string
 }
 
 /**
- * Get current action name
+ * Returns the current action name.
+ *
  * @return string name
  */
 function actionName():string
@@ -160,8 +174,9 @@ function actionName():string
 }
 
 /**
- * Get Configuration Variable
- * @param string $key
+ * Returns the value of the configuration Variable specified by the dot-notation key.
+ *
+ * @param string $key dot-notation key
  * @param mixed $default
  * @return mixed configuration Variable
  */
@@ -171,8 +186,9 @@ function config($key, $default = null)
 }
 
 /**
- * Get Translated Message
- * @param string $key
+ * Returns the translated message specified by the dot-notation key.
+ *
+ * @param string $key dot-notation key
  * @param string $params
  * @return string translated Message
  */
@@ -182,8 +198,9 @@ function __($key, $params = [])
 }
 
 /**
- * Get Input Labels
- * @param string $message_key
+ * Returns an array of input labels specified by the dot-notation key.
+ *
+ * @param string $message_key dot-notation key
  * @return array
  */
 function inputLabels(string $message_key):array
@@ -201,7 +218,8 @@ function inputLabels(string $message_key):array
 }
 
 /**
- * Get input($_GET or $_POST depending on the method) data
+ * Returns the input data($_GET or $_POST depending on the post method) specified by the key.
+ *
  * @param string $key
  * @param mixed $default
  * @return string
@@ -212,7 +230,8 @@ function input(string $key, $default=null)
 }
 
 /**
- * Get QueryString data
+ * Returns the QueryString($_GET) data specified by the key.
+ *
  * @param string $key
  * @param mixed $default
  * @return string
@@ -223,7 +242,8 @@ function queryString(string $key, $default=null)
 }
 
 /**
- * Get session($_SESSION) date
+ * Returns the session data($_SESSION) specified by the key.
+ *
  * @param string $key
  * @param mixed $default
  * @return mixed
@@ -234,7 +254,8 @@ function session(string $key, $default=null)
 }
 
 /**
- * Get flash date
+ * Returns the flash data specified by the key.
+ *
  * @param string $key
  * @param mixed $default
  * @return mixed
@@ -245,7 +266,8 @@ function flash(string $key, $default=null)
 }
 
 /**
- * Get cookie($_COOKIE) date
+ * Returns the cookie data($_COOKIE) specified by the key.
+ *
  * @param string $key
  * @param mixed $default
  * @return string
@@ -256,9 +278,10 @@ function cookie(string $key, $default=null)
 }
 
 /**
- * render
- * @param string $view テンプレート名
- * @param array $variables テンプレート変数のハッシュ
+ * Renders HTML via the given template and returns a response object.
+ *
+ * @param string $view Template name
+ * @param array $variables An array of template variables
  * @return \Apricot\Foundation\Response\RenderResponse
  */
 function render(string $view=null, array $variables=[]):Apricot\Foundation\Response\RenderResponse
@@ -269,7 +292,8 @@ function render(string $view=null, array $variables=[]):Apricot\Foundation\Respo
 }
 
 /**
- * redirect
+ * Returns a response object that redirects to the specified URL.
+ *
  * @param string $url URL
  * @return \Apricot\Foundation\Response\RedirectResponse
  */
@@ -279,7 +303,8 @@ function redirect(string $url):Apricot\Foundation\Response\RedirectResponse
 }
 
 /**
- * Get old request inputs
+ * Returns the old input value flushed to the session, specified by the key.
+ *
  * @param string $key
  * @param mixed $default
  * @return string
@@ -291,7 +316,8 @@ function old(string $key, $default = null)
 }
 
 /**
- * Get old URL Path
+ * Returns an old URL path.
+ *
  * @return string URL
  */
 function back():string
@@ -312,7 +338,8 @@ function back():string
 }
 
 /**
- * Get response errors
+ * Returns response errors flashed into the session.
+ *
  * @return \Apricot\Foundation\ErrorBag
  */
 function errors():Apricot\Foundation\ErrorBag

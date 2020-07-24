@@ -10,19 +10,18 @@ use Apricot\Foundation\Response;
 class MiddlewareInvoker implements Invoker
 {
     /**
-     * Middleware Instance
-     * @var Middleware
+     * @var Middleware Middleware instance
      */
     private $middleware;
 
     /**
-     * Next Invoker Instance
-     * @var Invoker
+     * @var Invoker Next invoker instance
      */
     private $nextInvoker;
 
     /**
-     * Create Middleware Handler
+     * Creates a middleware invoker.
+     *
      * @param Middleware $middleware
      * @param Invoker $nextInvoker
      */
@@ -33,8 +32,8 @@ class MiddlewareInvoker implements Invoker
     }
 
     /**
-     * Invoke middleware
-     * @return \Apricot\Foundation\Response
+     * Invokes middleware.
+     *
      * {@inheritDoc}
      * @see \Apricot\Foundation\Invoker::invoke()
      */

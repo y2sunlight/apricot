@@ -5,12 +5,13 @@ use Apricot\Flash;
 use Apricot\Foundation\ErrorBag;
 
 /**
- * Redirected Response Class
+ * Redirecte Response Class
  */
 class RedirectResponse extends \Apricot\Foundation\Response
 {
     /**
-     * Create RedirectResponse
+     * Creates a redirect response.
+     *
      * @param string $url
      */
     public function __construct(string $url)
@@ -19,7 +20,8 @@ class RedirectResponse extends \Apricot\Foundation\Response
     }
 
     /**
-     * with
+     * Returns the instance of self with the specified flash data.
+     *
      * @param string $key
      * @param mixed $value
      * @return RedirectResponse
@@ -31,7 +33,8 @@ class RedirectResponse extends \Apricot\Foundation\Response
     }
 
     /**
-     * withInputs
+     * Returns the instance of self with all input data as flash data.
+     *
      * @return RedirectResponse
      */
     public function withInputs():RedirectResponse
@@ -41,7 +44,8 @@ class RedirectResponse extends \Apricot\Foundation\Response
     }
 
     /**
-     * withErrors
+     * Returns the instance of self with the specified ErrorBag as flash data.
+     *
      * @param  \Apricot\Foundation\ErrorBag $message
      * @return RedirectResponse
      */
@@ -52,7 +56,8 @@ class RedirectResponse extends \Apricot\Foundation\Response
     }
 
     /**
-     * withOldErrors
+     * Returns the instance of self with the previous ErrorBag as flash data.
+     *
      * @return RedirectResponse
      */
     public function withOldErrors():RedirectResponse

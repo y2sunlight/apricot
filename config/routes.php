@@ -1,13 +1,16 @@
 <?php
-//-------------------------------------------------------------------
-// Route Definition Callback
-//-------------------------------------------------------------------
+/**
+ * This file contains callback for route definitions.
+ */
 return function (FastRoute\RouteCollector $r)
 {
+    /** @var string $base route base path */
     $base = Apricot\Application::getInstance()->getRouteBase();
+
+    // Create a route group with a common prefix.
     $r->addGroup($base, function (FastRoute\RouteCollector $r) use($base)
     {
-        // Auth
+        // Authentication
         $r->get ('/login', 'AuthController@showForm');
         $r->post('/login', 'AuthController@login');
         $r->get ('/logout', 'AuthController@logout');

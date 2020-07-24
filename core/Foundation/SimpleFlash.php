@@ -4,32 +4,33 @@ namespace Apricot\Foundation;
 use Apricot\Debug;
 
 /**
- * Very Simple Flash Class
+ * Simple Flash Class
  */
 class SimpleFlash
 {
-    /*
-     * Flash Data
+    /**
+     * @var array flash data
      */
     private $flash;
 
-    /*
-     * Flash Session key
+    /**
+     * @var string Session key for Flash
      */
-    private const FLASH = '_flash';
+    private const FLASH_KEY = '_flash';
 
     /**
-     * Create Flash
+     * Creates flash data.
      */
     public function __construct()
     {
-        $this->flash = array_key_exists(self::FLASH,$_SESSION) ? $_SESSION[self::FLASH] : array();
+        $this->flash = array_key_exists(self::FLASH_KEY, $_SESSION) ? $_SESSION[self::FLASH_KEY] : array();
         Debug::debug($this);
-        unset($_SESSION[self::FLASH]);
+        unset($_SESSION[self::FLASH_KEY]);
     }
 
     /**
-     * Checks if a key is present
+     * Checks if the given key is present.
+     *
      * @param string $key
      * @return boolean
      */
@@ -39,7 +40,8 @@ class SimpleFlash
     }
 
     /**
-     * Get flash data
+     * Gets the flash data specified by the key.
+     *
      * @param string $key
      * @param mixed $default
      * @return mixed
@@ -57,35 +59,37 @@ class SimpleFlash
     }
 
     /**
-     * Set flash data
+     * Sets flash data.
+     *
      * @param string $key
      * @param mixed $value
      */
     public function set(string $key, $value)
     {
-        $_SESSION[self::FLASH][$key] = $value;
-        $this->flash[self::FLASH] = $value;
+        $_SESSION[self::FLASH_KEY][$key] = $value;
+        $this->flash[self::FLASH_KEY] = $value;
     }
 
     /**
-     * Remove flash data
-     * @param array|mixed $keys array or arguments list
+     * Removes the flash data specified by the key.
+     *
+     * @param string $key
      */
     public function remove(string $key)
     {
         if ($this->has($key))
         {
-            unset($_SESSION[self::FLASH][$key]);
+            unset($_SESSION[self::FLASH_KEY][$key]);
             unset($this->flash[$key]);
         }
     }
 
     /**
-     * Clear flash data
+     * Clears all flash data.
      */
     public function clear()
     {
-        unset($_SESSION[self::FLASH]);
+        unset($_SESSION[self::FLASH_KEY]);
         $this->flash = array();
     }
 }

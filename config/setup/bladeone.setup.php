@@ -1,7 +1,7 @@
 <?php
-//-------------------------------------------------------------------
-// View template (BladeOne)の初期設定
-//-------------------------------------------------------------------
+/**
+ * Initial setting of View template (Blade One)
+ */
 return function():bool
 {
     // @now directive

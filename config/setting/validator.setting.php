@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file contains Valitron\Validator settings.
+ */
 $lang = \Apricot\Lang::getLangCode();
 return
 [

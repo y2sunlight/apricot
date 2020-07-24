@@ -9,7 +9,8 @@ abstract class CallStatic
     protected static abstract function getInstance();
 
     /**
-     * Handle calls to Instance,Statically.
+     * Handles calls to instance,Statically.
+     *
      * @param  string  $method
      * @param  array   $args
      * @return mixed

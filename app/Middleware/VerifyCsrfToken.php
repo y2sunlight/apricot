@@ -7,20 +7,18 @@ use Apricot\Foundation\Middleware\Middleware;
 use Apricot\Foundation\Security\CsrfToken;
 
 /**
- * CSRFトークンの検証 - Middleware
+ * CSRF token verification - Middleware
  */
 class VerifyCsrfToken implements Middleware
 {
     /**
-     * Excludeing controller
-     * @var array
+     * @var array List of controllers to exclude
      */
     private $exclude = [
         'HogeHogeController', // For example: Web API controller etc.
     ];
 
     /**
-     * Process incoming requests and produces a response
      * {@inheritDoc}
      * @see \Apricot\Foundation\Middleware\Middleware::invoke()
      */
@@ -28,14 +26,14 @@ class VerifyCsrfToken implements Middleware
     {
         if (!in_array(controllerName(), $this->exclude))
         {
-            // CSRFトークンの検証を行う
+            // Verify CSRF token.
             if (!CsrfToken::verify())
             {
                 throw new \Apricot\Exceptions\TokenMismatchException('VerifyCsrfToken Error');
             }
         }
 
-        // CSRFトークンを生成する
+        // Generate CSRF token.
         CsrfToken::generate();
 
         return $next->invoke();

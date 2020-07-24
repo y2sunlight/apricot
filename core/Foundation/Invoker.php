@@ -7,7 +7,8 @@ namespace Apricot\Foundation;
 interface Invoker
 {
     /**
-     * Invoke incoming request processor
+     * Invokes incoming request processor
+     *
      * @return \Apricot\Foundation\Response
      */
     public function invoke() : Response;

@@ -5,22 +5,23 @@ use Apricot\Input;
 use Apricot\Session;
 
 /**
- * CSRF
+ * CSRF Token Class
  */
 class CsrfToken
 {
     /**
-     * @var integer
+     * @var int
      */
     private const CSRF_LENGTH = 40;
 
     /**
-     * Session/Post key for CSRF
+     * @var string Session/Post key for CSRF
      */
     public const CSRF_KEY = '_token';
 
     /**
-     * verify CSRF Token
+     * Verifys the CSRF Token.
+     *
      * @return bool Returns true on success
      */
     public static function verify():bool
@@ -50,7 +51,8 @@ class CsrfToken
     }
 
     /**
-     * Generate new CSRF Token in Session
+     * Generates a new CSRF Token in the session.
+     *
      * @return bool
      */
     public static function generate()

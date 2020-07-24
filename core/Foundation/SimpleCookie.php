@@ -2,23 +2,22 @@
 namespace Apricot\Foundation;
 
 /**
- * Very Simple Cookie Class - $_COOKIE Wrapper
+ * Simple Cookie Class - $_COOKIE Wrapper
  */
 class SimpleCookie
 {
     /**
-     * Cookie Data
-     * @var array
+     * @var array Cookie data
      */
     private $cookie = null;
 
     /**
-     * Cookie saved forever (Default value)
+     * @var int Validity time of the cookie that represents 'FOREVER'
      */
     private const FOREVER = 365*24*60*60;
 
     /**
-     * Create Simple Cookie
+     * Constructor
      */
     public function __construct()
     {
@@ -26,7 +25,8 @@ class SimpleCookie
     }
 
     /**
-     * Checks if a key is present
+     * Checks if the given key is present.
+     *
      * @param string $key
      * @return boolean
      */
@@ -36,7 +36,8 @@ class SimpleCookie
     }
 
     /**
-     * Get cookie data
+     * Gets the cookie data specified by the key.
+     *
      * @param string $key
      * @param string $default
      * @return string|null
@@ -54,7 +55,8 @@ class SimpleCookie
     }
 
     /**
-     * Set cookie data
+     * Sets cookie data.
+     *
      * @param string $key
      * @param string $value
      * @param int $expires_sec (not time()*60*60, but 60*60 )
@@ -71,7 +73,8 @@ class SimpleCookie
     }
 
     /**
-     * Set Cookie forever
+     * Sets cookie data forever.
+     *
      * @param string $key
      * @param string $value
      * @return bool return true if successfuly
@@ -82,7 +85,8 @@ class SimpleCookie
     }
 
     /**
-     * Remove Cookie
+     * Removes the cookie data specified by the key.
+     *
      * @param string $key
      */
     public function remove(string $key)
@@ -95,7 +99,8 @@ class SimpleCookie
     }
 
     /**
-     * Send Cookie
+     * Sends the cookie data.
+     *
      * @param string $key
      * @param string $value
      * @param int $expires_sec (not time()*60*60, but 60*60 )

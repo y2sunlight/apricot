@@ -5,12 +5,13 @@ use App\Foundation\Controller;
 use App\Foundation\Security\AuthUser;
 
 /**
- * ホームコントローラ
+ * Home Controller
  */
 class HomeController extends Controller
 {
     /**
-     * Home Page
+     * Index Page for this controller.
+     *
      * @return \Apricot\Foundation\Response
      */
     public function index()

@@ -2,18 +2,17 @@
 namespace Apricot\Foundation;
 
 /**
- * Improvised Configuration Class
+ * Plain Configuration Class
  */
 class Configuration
 {
     /**
-     * Configurations
-     * @var array
+     * @var array configuration data
      */
     protected $config = [];
 
     /**
-     * Create Configuration
+     * Constructor
      */
     function __construct()
     {
@@ -26,7 +25,8 @@ class Configuration
     }
 
     /**
-     * Checks if a key is present
+     * Checks if the given key is present.
+     *
      * @param string $dot Dot-notation key
      * @return bool
      */
@@ -36,7 +36,8 @@ class Configuration
     }
 
     /**
-     * Get a value from the configuration
+     * Gets the configuration value specified by the Dot-notation key.
+     *
      * @param string $dot Dot-notation key
      * @param mixed $default
      * @return mixed
@@ -47,7 +48,8 @@ class Configuration
     }
 
     /**
-     * Read configuration
+     * Reads configuration data.
+     *
      * @param string $config_file
      * @param string $top_key
      */

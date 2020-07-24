@@ -8,52 +8,32 @@ use DebugBar\DataCollector\DataCollectorInterface;
  */
 Class StandardDebugBar
 {
-    /**
-     * DebugBar
-     * @var \DebugBar\StandardDebugBar
-     */
+    /** @var \DebugBar\StandardDebugBar */
     protected $debugBar;
 
-    /**
-     * JavascriptRenderer
-     * @var \DebugBar\JavascriptRenderer
-     */
+    /** @var \DebugBar\JavascriptRenderer */
     protected $renderer;
 
-    /**
-     * Whether to create assets to be automatically rendered
-     * @var boolean
-     */
+    /** @var boolean Whether to create assets to be automatically rendered. */
     protected $autoAssets;
 
-    /**
-     * Directory of automatically generated resources
-     * @var string
-     */
+    /** @var string Directory of automatically generated resources. */
     protected $autoAssetsDir;
 
-    /**
-     * Automatically generated resource base directory
-     */
+    /** @var string Automatically generated resource base directory. */
     protected const ASSET_BASE = 'var/debugbar';
 
-    /**
-     * Name of automatically generated css
-     */
+    /** @var string Name of automatically generated css. */
     protected const ASSET_CSS = 'debugbar.css';
 
-    /**
-     * Name of automatically generated js
-     */
+    /** @ var string Name of automatically generated js. */
     protected const ASSET_JS = 'debugbar.js';
 
-    /**
-     * Name of automatically generated vendor directory
-     */
+    /**@ var string Name of automatically generated vendor directory. */
     protected const ASSET_VENDOR = 'vendor';
 
     /**
-     * Create custom StandardDebugBar instance.
+     * Creates custom StandardDebugBar instance.
      */
     public function __construct()
     {
@@ -80,7 +60,8 @@ Class StandardDebugBar
     }
 
     /**
-     * Create assets to be automatically rendered
+     * Creates assets to be automatically rendered.
+     *
      * @return string
      */
     protected function createAssets()
@@ -114,7 +95,8 @@ Class StandardDebugBar
     }
 
     /**
-     * Renders the html to include needed assets
+     * Renders the html to include needed assets.
+     *
      * @return string
      */
     public function renderHead():string
@@ -146,7 +128,8 @@ EOT;
     }
 
     /**
-     * Returns the code needed to display the debug bar
+     * Returns the code needed to display the debug bar.
+     *
      * @return string
      */
     public function render():string
@@ -161,7 +144,8 @@ EOT;
     }
 
     /**
-     * Get Data Collector
+     * Gets data collector.
+     *
      * @param string $name
      * @return DataCollectorInterface
      */

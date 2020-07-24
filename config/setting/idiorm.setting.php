@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file contains Idiorm settings.
+ */
 return
 [
     'sqlite' => [

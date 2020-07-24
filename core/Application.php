@@ -2,100 +2,123 @@
 namespace Apricot;
 
 /**
- * Application Class
+ * Application class
  */
 class Application
 {
-    /**
-     * Application Instance
-     * var Application
-     */
+    /** @var Application Application instance */
     private static $instance = null;
 
-    /**
-     * Application Setting
-     * @var array
-     */
+    /** @var array Application settings */
     private $app = [];
 
-    /*
-     * Project Directories
-     */
+    /** @var string Project directory */
     private $projectDir;
+
+    /** @var string config directory */
     private $configDir;
+
+    /** @var string assets directory */
     private $assetsDir;
+
+    /** @var string var directory */
     private $varDir;
 
-    /*
-     * Public Directory
-     */
+    /** @var string public directory */
     private $publicDir;
 
-    /*
-     * Route Base Path
-     */
+    /** @var string Route base path */
     private $routeBase;
 
-    /*
-     * Controller Name
-     */
+    /** @var string Controller name */
     private $controllerName;
 
-    /*
-     *Action Name;
-     */
+    /** @var string Action name */
     private $actionName;
 
     /**
-     * Get Project dir
+     * Gets the project directory.
+     *
      * @return string
      */
-    public function getProjectDir():string {return $this->projectDir;}
+    public function getProjectDir():string
+    {
+        return $this->projectDir;
+    }
 
     /**
-     * Get config dir
+     * Gets the config directory.
+     *
      * @return string
      */
-    public function getConfigDir():string {return $this->configDir; }
+    public function getConfigDir():string
+    {
+        return $this->configDir;
+    }
 
     /**
-     * Get assets dir
+     * Gets the assets directory.
+     *
      * @return string
      */
-    public function getAssetsDir():string {return $this->assetsDir; }
+    public function getAssetsDir():string
+    {
+        return $this->assetsDir;
+    }
 
     /**
-     * Get var dir
+     * Gets the var directory.
+     *
      * @return string
      */
-    public function getVarDir():string {return $this->varDir; }
+    public function getVarDir():string
+    {
+        return $this->varDir;
+    }
 
     /**
-     * Get Public Directory
+     * Gets the public directory.
+     *
      * @return string
      */
-    public function getPublicDirectory():string {return $this->publicDir; }
+    public function getPublicDirectory():string
+    {
+        return $this->publicDir;
+    }
 
     /**
-     * Get Route Base Path
+     * Gets the route base path.
+     *
      * @return string
      */
-    public function getRouteBase():string {return $this->routeBase; }
+    public function getRouteBase():string
+    {
+        return $this->routeBase;
+    }
 
     /**
-     * Get controller Name
+     * Gets the controller name.
+     *
      * @return string
      */
-    public function getControllerName():string {return $this->controllerName; }
+    public function getControllerName():string
+    {
+        return $this->controllerName;
+    }
 
     /**
-     * Get Action Name
+     * Gets the action name.
+     *
      * @return string
      */
-    public function getActionName():string {return $this->actionName; }
+    public function getActionName():string
+    {
+        return $this->actionName;
+    }
 
     /**
-     * Get Application instance.
+     * Gets the application instance.
+     *
      * @return \Apricot\Application
      */
     static public function getInstance():Application
@@ -108,7 +131,8 @@ class Application
     }
 
     /**
-     * Create Application
+     * Creates the application.
+     *
      * @param string $projectDir
      * @param string $publicDir
      */
@@ -116,16 +140,16 @@ class Application
     {
         if (!self::$instance)
         {
-            // Set Project Directories
+            // Set project directories
             $this->projectDir = $projectDir;
             $this->configDir = $projectDir.'/config';
             $this->assetsDir = $projectDir.'/assets';
             $this->varDir = $projectDir.'/var';
 
-            // Set Public Directory
+            // Set public directory
             $this->publicDir = $publicDir;
 
-            // Set Route Base Path
+            // Set route base path
             $routeBase = dirname($_SERVER['SCRIPT_NAME']);
             if (preg_match('/^[\\.\\\\]$/', $routeBase)) $routeBase='';
             $this->routeBase = $routeBase;
@@ -141,7 +165,8 @@ class Application
     }
 
     /**
-     * Get an application setting value
+     * Gets the application setting specified by the Dot-notatio key.
+     *
      * @param string|null $dot Dot-notation key
      * @param mixed $default
      * @return mixed
@@ -152,7 +177,8 @@ class Application
     }
 
     /**
-     * Checks if an application setting key is present
+     * Checks if the given key in the application settings values is present.
+     *
      * @param string $dot Dot-notation key
      * @return bool
      */
@@ -162,8 +188,9 @@ class Application
     }
 
     /**
-     * Setup Application
-     * @param array $app Application Setting
+     * Sets up the application.
+     *
+     * @param array $app Application settings
      */
     public function setup(array $app=[])
     {
@@ -184,12 +211,13 @@ class Application
     }
 
     /**
-     * Run Application
+     * Runs the application.
+     *
      * @param callable $routeDefinitionCallback
      */
     public function run(callable $routeDefinitionCallback)
     {
-        // Create Dispatcher
+        // Create dispatcher
         $dispatcher = \FastRoute\simpleDispatcher($routeDefinitionCallback);
 
         // Fetch method and URI from somewhere
@@ -241,7 +269,8 @@ class Application
     }
 
     /**
-     * Ecexute action
+     * Executes action.
+     *
      * @param string $controllerName
      * @param string $actionName
      * @param array $params

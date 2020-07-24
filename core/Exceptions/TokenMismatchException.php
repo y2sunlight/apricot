@@ -2,12 +2,13 @@
 namespace Apricot\Exceptions;
 
 /**
- * Token Mismatch Exception
+ * Token mismatch exception
  */
 class TokenMismatchException extends \Exception
 {
     /**
-     * Create TokenMismatchException
+     * Creates a token mismatch exception.
+     *
      * @param string $message
      * @param int $code
      * @param \Exception $previous

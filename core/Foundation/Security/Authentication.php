@@ -5,45 +5,44 @@ use Apricot\Cookie;
 use Apricot\Session;
 
 /**
- * Authentication
+ * Authentication Class
  */
 class Authentication
 {
     /**
-     * @var integer
+     * @var int
      */
     private const TOKEN_LENGTH = 64;
 
     /**
-     * Session key for authenticated user
+     * @var string Session key prefix for an authenticated user
      */
     private const SESSION_KEY_AUTH = '_auth_';
 
     /**
-     * Session key for path after login
+     * @var string Session key prefix for the path after logging in
      */
     private const SESSION_KEY_PATH_AFTER_LOGIN = '_path_after_login_';
 
     /**
-     * Cookie key for remembered user
+     * @var string Cookie key prefix for a remembered user
      */
     private const COOKIE_KEY_REMEMBER = '_remember_';
 
     /**
-     * Authentication name
-     * @var string
+     * @var string Authentication name
      */
     private $name;
 
     /**
-     * Authentication interface
-     * @var Authenticatable
+     * @var Authenticatable Authentication interface
      */
     private $auth;
 
     /**
-     * Create authentication object
-     * @param string $name
+     * Creates an authentication object.
+     *
+     * @param Authenticatable $auth
      */
     public function __construct(Authenticatable $auth)
     {
@@ -52,7 +51,8 @@ class Authentication
     }
 
     /**
-     * Authenticate user (Login)
+     * Authenticates the user.
+     *
      * @param string $account
      * @param string $password
      * @param bool $remenber
@@ -71,7 +71,8 @@ class Authentication
     }
 
     /**
-     * Remember user (Auto Login)
+     * Remembers the user.
+     *
      * @return bool true if authenticated
      */
     public function remember()
@@ -90,7 +91,8 @@ class Authentication
     }
 
     /**
-     * Returns whether the user has been authenticated
+     * Returns whether the user has been authenticated.
+     *
      * @return bool true if authenticated
      */
     public function check(): bool
@@ -99,7 +101,8 @@ class Authentication
     }
 
     /**
-     * Verify whether user is authenticated
+     * Verifys whether the user is authenticated.
+     *
      * @return bool true if authenticated
      */
     public function verify(): bool
@@ -126,7 +129,7 @@ class Authentication
     }
 
     /**
-     * Forget user's session and cookie
+     * Forgets the user's session and cookie.
      */
     public function forget()
     {
@@ -138,7 +141,8 @@ class Authentication
     }
 
     /**
-     * Get authenticated user
+     * Gets the authenticated user.
+     *
      * @return object
      */
     public function getUser()
@@ -147,7 +151,8 @@ class Authentication
     }
 
     /**
-     * Get path after login
+     * Gets the path after logging in.
+     *
      * @return string
      */
     public function getPathAfterLogin() : string
@@ -156,7 +161,8 @@ class Authentication
     }
 
     /**
-     * Set user session
+     * Sets the user session.
+     *
      * @param object $user
      * @param bool $remenber
      */
@@ -184,7 +190,7 @@ class Authentication
     }
 
     /**
-     * Get login user
+     * Gets the login user
      * @return object
      */
     private function setUser(object $user)
@@ -193,7 +199,7 @@ class Authentication
     }
 
     /**
-     * Set path after login
+     * Sets the path after logging in
      * @param string $path
      */
     private function setPathAfterLogin(string $path)
@@ -202,7 +208,7 @@ class Authentication
     }
 
     /**
-     * Get remenber me cookie name
+     * Gets the remenber_me cookie name
      * @return string
      */
     private function getRemenberCookieName():string
@@ -211,7 +217,7 @@ class Authentication
     }
 
     /**
-     * Get remenber me token
+     * Gets the remenber_me token
      * @return string
      */
     private function getRemenberToken():string

@@ -1,15 +1,15 @@
-{{-- 親レイアウト --}}
+{{-- Parent layout --}}
 @extends('layout')
 
-{{-- 追加スクリプト --}}
+{{-- Additional script --}}
 @push('scripts')
 @endpush
 
-{{-- タイトル --}}
+{{-- title --}}
 @section('title')
 @endsection
 
-{{-- コンテンツ --}}
+{{--content --}}
 @section('content')
     <h1 class="text-center">{{__('messages.home.title')}} <span class="small">{{env('APP_VERSION')}}</span></h1>
     <div class="text-center">

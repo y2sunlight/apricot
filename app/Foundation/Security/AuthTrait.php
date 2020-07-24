@@ -5,13 +5,12 @@ use ORM;
 use Apricot\Log;
 
 /**
- * Authenticatable User
- * Includeing default implementation of Authenticatable
+ * Includeing default implementation of Authenticatable interface.
  */
 trait AuthTrait
 {
     /**
-     * Get authentication name
+     * Gets the authentication name.
      * {@inheritDoc}
      * @see \Apricot\Foundation\Security\Authenticatable::getAuthName()
      */
@@ -21,7 +20,7 @@ trait AuthTrait
     }
 
     /**
-     * Authenticate user
+     * Authenticates the user.
      * {@inheritDoc}
      * @see \Apricot\Foundation\Security\Authenticatable::authenticateUser()
      */
@@ -42,7 +41,7 @@ trait AuthTrait
     }
 
     /**
-     * Remember user
+     * Remembers the user.
      * {@inheritDoc}
      * @see \Apricot\Foundation\Security\Authenticatable::rememberUser()
      */
@@ -63,7 +62,7 @@ trait AuthTrait
     }
 
     /**
-     * Retrieve user
+     * Retrieves the user.
      * {@inheritDoc}
      * @see \Apricot\Foundation\Security\Authenticatable::retrieveUser()
      */
@@ -78,7 +77,7 @@ trait AuthTrait
     }
 
     /**
-     * Save remenber token
+     * Saves the remember_token.
      * {@inheritDoc}
      * @see \Apricot\Foundation\Security\Authenticatable::saveRemenberToken()
      */

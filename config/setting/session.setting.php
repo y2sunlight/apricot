@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file contains session settings.
+ */
 return
 [
     'name' => 'SID'.substr(md5(env('APP_SECRET', env('APP_NAME'))),0,16),

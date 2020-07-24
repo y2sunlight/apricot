@@ -1,29 +1,29 @@
 <?php
-//-------------------------------------------------------------------
-// エラーハンドラー(Whoops)の初期設定
-//-------------------------------------------------------------------
+/**
+ * initial settings of Error handler (Whoops)
+ */
 return function():bool
 {
     $whoops = new \Whoops\Run;
     if(config('whoops.debug'))
     {
         //----------------------------
-        // デバッグ用のエラーハンドラー
+        // Error handler for debugging
         //----------------------------
         $whoops->pushHandler(new Apricot\Derivations\PrettyErrorHandlerWithLogger);
     }
     else
     {
         //----------------------------
-        // 本番用のエラーハンドラー
+        // Error handler for production
         //----------------------------
         $whoops->pushHandler(function($exception, $inspector, $run)
         {
-            // エラーログ出力
+            // Output error log
             Apricot\Log::critical($exception->getMessage(),[$exception->getFile(),$exception->getLine(), $exception->getTraceAsString()]);
 
-            // ユーザ向けエラー画面の表示
-            // TODO: ここは例外のループを抑止しなかればならない
+            // Display error screen for users
+            // TODO: Here I have to suppress the exception loop
             $controller = config('whoops.controller',null);
             $action = config('whoops.action',null);
             if (isset($controller)&&isset($action))

@@ -1,20 +1,20 @@
 <?php
-//-------------------------------------------------------------------
-// ORM(idirom)の初期設定
-//-------------------------------------------------------------------
+/**
+ * Initial setting of ORM (idirom)
+ */
 return function():bool
 {
-    // データベースファイルの準備
+    // Prepare the database files
     $db_file = config('idiorm.sqlite.db_file');
     if (!file_exists($db_path=dirname($db_file)))
     {
         @mkdir($db_path, null, true);
     }
 
-    // DBファイルの存在確認
+    // Check if DB file exists
     $new_db_file = !file_exists($db_file);
 
-    // データベース接続
+    // Connect to database
     ORM::configure([
         'connection_string' => config('idiorm.sqlite.connection_string'),
         'caching' => config('idiorm.sqlite.caching',false),
@@ -23,11 +23,11 @@ return function():bool
         {
             // SQL debug logging
             Apricot\Log::info("SQL",[$log_string]);
-    },
+        },
     ]);
 
     //-------------------------------------------
-    // テーブルの作成 (新しくDBを作った時)
+    // Create tables when creating a new DB
     //-------------------------------------------
     if ($new_db_file)
     {
@@ -42,7 +42,7 @@ return function():bool
     }
 
     //-------------------------------------------
-    // 初期ユーザの作成 (ユーザテーブルが空の時)
+    // Create initial data when a table is empty
     //-------------------------------------------
     $initial_data = config('idiorm.initial_data');
     if (isset($initial_data))
@@ -51,18 +51,19 @@ return function():bool
         {
             if(ORM::for_table($key)->find_one()===false)
             {
+                // SQL execution
                 if (array_key_exists('exec', $item))
                 {
-                    // SQLの実行
                     $exec = (array)$item['exec'];
                     foreach($exec as $sql)
                     {
                         ORM::get_db()->exec($sql);
                     }
                 }
+
+                // Create new records
                 if (array_key_exists('rows', $item))
                 {
-                    // 新しいレコードの作成
                     $rows = (array)$item['rows'];
                     foreach($rows as $row)
                     {
@@ -76,7 +77,7 @@ return function():bool
         }
     }
 
-    // SQLログ開始
+    // Start SQL log
     ORM::configure('logging' , config('idiorm.sqlite.logging',false));
     return true; // Must return true on success
 };

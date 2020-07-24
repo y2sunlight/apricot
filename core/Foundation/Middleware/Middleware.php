@@ -10,9 +10,10 @@ use Apricot\Foundation\Response;
 interface Middleware
 {
     /**
-     * Process incoming requests and produces a response
-     * @param Invoker $next Next invoker
-     * @return \Apricot\Foundation\Response if return response, then don'true call next action
+     * Processes an incoming request and produces a response.
+     *
+     * @param Invoker $next Next invoker.
+     * @return \Apricot\Foundation\Response if return a response within this method, then don't call the next action.
      */
     public function process(Invoker $next) :Response;
 }

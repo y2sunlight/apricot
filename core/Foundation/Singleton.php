@@ -9,7 +9,8 @@ abstract class Singleton extends CallStatic
     protected static abstract function createInstance();
 
     /**
-     * Get instance.
+     * Gets the instance.
+     *
      * @return object
      */
     public static function getInstance()

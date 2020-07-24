@@ -2,18 +2,18 @@
 namespace Apricot\Exceptions;
 
 /**
- * Http Exception
+ * HTTP exception
  */
 class HttpException extends \Exception
 {
     /**
-     * Http Status Code
-     * @var int
+     * @var int HTTP response status code
      */
     private $statusCode;
 
     /**
-     * Create HttpException
+     * Creates a HTTP exception.
+     *
      * @param int $statusCode
      * @param string $message
      * @param int $code
@@ -26,7 +26,8 @@ class HttpException extends \Exception
     }
 
     /**
-     * Get Http Status Code
+     * Gets the HTTP response status code.
+     *
      * @return int
      */
     public function getStatusCode()

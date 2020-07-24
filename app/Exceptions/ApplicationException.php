@@ -3,18 +3,18 @@
 namespace App\Exceptions;
 
 /**
- * アプリケーション例外
+ *Application Exception
  */
 class ApplicationException extends \Exception
 {
     /**
-     * User error message
-     * @var string
+     * @var string User error message.
      */
     private $user_message;
 
     /**
-     * Create ApplicationException
+     * Creates an application exception.
+     *
      * @param string $user_message
      * @param string $internal_message
      * @param int $code
@@ -27,7 +27,8 @@ class ApplicationException extends \Exception
     }
 
     /**
-     * Get user error message
+     * Gets the user error message.
+     *
      * @return string
      */
     public function getUserMessage()

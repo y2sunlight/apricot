@@ -3,13 +3,17 @@ namespace App\Foundation;
 
 use Apricot\Foundation\ErrorBag;
 
+/**
+ * ErrorBag class for validator.
+ */
 class ValidatorErrorBag extends ErrorBag
 {
     public const BAG_KEY = 'validator';
 
     /**
-     * Create Validator Error Bag
-     * @param array $errors \Valitron\Validator Errors
+     * Creates a error bag for validator.
+     *
+     * @param array $validator_errors Errors of \Valitron\Validator
      */
     public function __construct($validator_errors)
     {

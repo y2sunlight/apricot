@@ -7,25 +7,23 @@ use Apricot\Foundation\Middleware\Middleware;
 use App\Foundation\Security\AuthUser;
 
 /**
- * Basic認証 - Middleware
+ * Middleware - Basic authentication
  */
 class BasicAuth implements Middleware
 {
     /**
-     * Excludeing controller
-     * @var array
+     * @var array List of controllers to exclude
      */
     private $exclude = [
     ];
 
     /**
-     * Process incoming requests and produces a response
      * {@inheritDoc}
      * @see \Apricot\Foundation\Middleware\Middleware::invoke()
      */
     public function process(Invoker $next): Response
     {
-        // When exclude controller
+        // When excluded controller
         if (in_array(controllerName(), $this->exclude))
         {
             return $next->invoke();
@@ -37,7 +35,7 @@ class BasicAuth implements Middleware
             return $next->invoke();
         }
 
-        // Basic認証
+        // Authenticate
         if (array_key_exists('PHP_AUTH_USER', $_SERVER) && array_key_exists('PHP_AUTH_PW',$_SERVER))
         {
             if (AuthUser::authenticate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']))
@@ -46,7 +44,7 @@ class BasicAuth implements Middleware
             }
         }
 
-        // 未認証の場合は '401 Unauthorized' をクライアントに送信
+        // Send '401 Unauthorized' to client if not authorized
         $response = render('error.basic_auth', ['message'=>__('auth.basic.msg_needed_login')])
         ->addHeader("HTTP/1.0 401 Unauthorized")
         ->addHeader('WWW-Authenticate: Basic realm="Enter username and password."');

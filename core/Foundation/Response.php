@@ -4,39 +4,38 @@ namespace Apricot\Foundation;
 use Apricot\Session;
 
 /**
- * Improvised Response Class
+ * Plain Response Base Class
  */
 class Response
 {
     /**
-     *
-     * @var array
+     * @var array Response headers
      */
     protected $headers = [];
 
     /**
-     *
-     * @var array
+     * @var array flash data
      */
     protected $flashes = [];
 
     /**
-     * Flash key for old inputs
+     *  @var string Flash key for old inputs
      */
     public const FLASH_KEY_OLD = '_old_inputs';
 
     /**
-     * Flash key for old URL Path
+     * @var string Flash key for old URL Path
      */
     public const FLASH_KEY_BACK = '_old_path';
 
     /**
-     * Flash key for error bag
+     * @var string Flash key for error bag
      */
     public const FLASH_KEY_ERRORS = 'errors';
 
     /**
-     * Add a header
+     * Adds one or more headers.
+     *
      * @param string|array $headers
      * @return Response
      */
@@ -51,7 +50,8 @@ class Response
     }
 
     /**
-     * Check if a flash value is present
+     * Checks if the given key in flash data is present.
+     *
      * @param string $key
      * @return bool
      */
@@ -61,7 +61,8 @@ class Response
     }
 
     /**
-     * Add a value to flash
+     * Adds a value to flash.
+     *
      * @param string $key
      * @param mixed $value
      * @return Response
@@ -73,7 +74,8 @@ class Response
     }
 
     /**
-     * Commit Response Data
+     * Commits response data.
+     *
      * @param int $response_code
      */
     public function commit(int $response_code=null)

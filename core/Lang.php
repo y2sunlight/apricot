@@ -7,15 +7,16 @@ use Apricot\Foundation\Translation;
 /**
  * Lang Class - Translation Wrapper
  *
- * @method static Translation getInstance() Create Translation.
- * @method static string getLangCode() Get language code(ISO 639-1).
- * @method static bool has(string $key) Checks if a key is present.
- * @method static string get(string $key, array $params = []) et a value from the Messages.
+ * @method static Translation getInstance() Gets the Translation instance.
+ * @method static string getLangCode() Gets the language code(ISO 639-1).
+ * @method static bool has(string $key) Checks if the given key is present.
+ * @method static string get(string $key, array $params = []) Gets the message specified by the key.
  */
 class Lang extends Singleton
 {
     /**
-     * Create Translation instance.
+     * Creates the Translation instance.
+     *
      * @return Translation
      */
     protected static function createInstance()
@@ -29,7 +30,8 @@ class Lang extends Singleton
     }
 
     /**
-     * Get user language
+     * Gets the user language.
+     *
      * @return string language-code(ISO 639-1)
      * @link https://www.loc.gov/standards/iso639-2/php/English_list.php
      */

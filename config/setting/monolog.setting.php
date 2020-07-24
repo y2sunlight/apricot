@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file contains Monolog settings.
+ */
 return
 [
     'name' => env('LOG_NAME',env('APP_NAME')),

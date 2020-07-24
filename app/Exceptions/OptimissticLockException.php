@@ -3,12 +3,13 @@
 namespace App\Exceptions;
 
 /**
- * 楽観的ロック例外
+ * Optimisstic Lock Exception
  */
 class OptimissticLockException extends ApplicationException
 {
     /**
-     * Create Optimisstic Lock
+     * Creates an optimisstic lock exception.
+     *
      * @param string $message
      * @param \Exception $previous
      */

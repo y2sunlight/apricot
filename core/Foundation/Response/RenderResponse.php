@@ -2,20 +2,19 @@
 namespace Apricot\Foundation\Response;
 
 /*
- * Rendered Response Class
+ * Render Response Class
  */
 class RenderResponse extends \Apricot\Foundation\Response
 {
     /**
-     * Html Data
-     * @var string
+     * @var string Html text
      */
     private $html='';
 
     /**
-     * Create RenderResponse
+     * Creates a render response.
+     *
      * @param string $html
-     * @param array $variables
      */
     public function __construct(string $html=null)
     {
@@ -23,7 +22,8 @@ class RenderResponse extends \Apricot\Foundation\Response
     }
 
     /**
-     * Set Html
+     * Sets Html text.
+     *
      * @param string $html
      * @return RenderResponse
      */
@@ -34,13 +34,12 @@ class RenderResponse extends \Apricot\Foundation\Response
     }
 
     /**
-     * commit
      * {@inheritDoc}
      * @see \Apricot\Foundation\Response::commit()
      */
     public function commit(int $response_code=null)
     {
-        // headersに'Content-type'がなければ出力する
+        // Add header if headers does not have'Content-type'
         $matchs= preg_grep('/^content-type.*?:/i', $this->headers);
         if(empty($matchs))
         {
@@ -49,7 +48,7 @@ class RenderResponse extends \Apricot\Foundation\Response
 
         parent::commit($response_code);
 
-        // HTMLのレンダリング
+        // Rendering HTML
         echo $this->html;
         flush();
     }

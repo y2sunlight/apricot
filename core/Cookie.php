@@ -7,17 +7,18 @@ use Apricot\Foundation\SimpleCookie;
 /**
  * Lang Class - SimpleCookie($_COOKIE) Wrapper
  *
- * @method static SimpleCookie getInstance()
- * @method static bool has(string $key)
- * @method static string get(string $key, string $default = null)
- * @method static bool set(string $key, string $value, int $expires_sec=0):bool
- * @method static bool forever(string $key, string $value)
- * @method static bool remove(string $key)
+ * @method static SimpleCookie getInstance() Gets the SimpleCookie instance.
+ * @method static bool has(string $key) Checks if the given key is present.
+ * @method static string get(string $key, string $default = null) Gets the cookie data specified by the key.
+ * @method static bool set(string $key, string $value, int $expires_sec=0):bool Sets cookie data.
+ * @method static bool forever(string $key, string $value) Sets cookie data forever.
+ * @method static bool remove(string $key) Removes the cookie data specified by the key.
  */
 class Cookie extends Singleton
 {
     /**
-     * Create SimpleCookie instance.
+     * Creates the SimpleCookie instance.
+     *
      * @return SimpleCookie
      */
     protected static function createInstance()

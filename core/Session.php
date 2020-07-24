@@ -7,20 +7,22 @@ use Apricot\Foundation\SimpleSession;
 /**
  * Session Class - SimpleSession Wrapper
  *
- * @method static SimpleSession getInstance()
- * @method static void start()
- * @method static bool has(string $key)
- * @method static mixed get(string $key, mixed $default = null)
- * @method static void set(string $key, mixed $vale)
- * @method static void clear()
- * @method static void remove(string $key)
- * @method static void destroy()
- * @method static \Apricot\Foundation\SimpleFlash flash()
+ * @method static SimpleSession getInstance() Gets the SimpleSession instance.
+ * @method static void start() Starts session.
+ * @method static bool isStarted() Checks if session has started.
+ * @method static bool has(string $key) Checks if the given key is present.
+ * @method static mixed get(string $key, mixed $default = null) Gets the session data specified by the key.
+ * @method static void set(string $key, mixed $vale) Sets session data.
+ * @method static void remove(string $key) Removes the session data specified by the key.
+ * @method static void clear() Clears all session data.
+ * @method static void destroy() Destroys all session data.
+ * @method static \Apricot\Foundation\SimpleFlash flash() Gets the SimpleFlash instance.
  */
 class Session extends Singleton
 {
     /**
-     * Create SimpleSession instance.
+     * Creates the SimpleSession instance.
+     *
      * @return SimpleSession
      */
     protected static function createInstance()

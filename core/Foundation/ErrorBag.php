@@ -6,22 +6,18 @@ namespace Apricot\Foundation;
  */
 class ErrorBag implements \IteratorAggregate
 {
+    /** @var string Default error bag name */
     public const DEFAULT_NAME = 'error';
 
-    /**
-     * Bag name
-     * @var string
-     */
+    /** @var string Bag name */
     private $name;
 
-    /**
-     * Errors
-     * @var array
-     */
+    /** @var array Errors */
     private $errors = [];
 
     /**
-     * Create Error bag
+     * Creates a error bag.
+     *
      * @param array $errors Associative array
      * @param string $name Bag name
      */
@@ -35,7 +31,8 @@ class ErrorBag implements \IteratorAggregate
     }
 
     /**
-     * Count errors
+     * Counts errors.
+     *
      * @param string $name Bag name
      * @return int
      */
@@ -52,7 +49,8 @@ class ErrorBag implements \IteratorAggregate
     }
 
     /**
-     * Checks if a key is present
+     * Checks if the given key is present.
+     *
      * @param string $key Error key
      * @param string $name Bag name
      * @return boolean
@@ -67,7 +65,8 @@ class ErrorBag implements \IteratorAggregate
     }
 
     /**
-     * Get error a bag
+     * Gets the error specified by the key.
+     *
      * @param string $key Error key
      * @param string $name Bag name
      * @return mixed return null if a key is not present
@@ -86,7 +85,8 @@ class ErrorBag implements \IteratorAggregate
     }
 
     /**
-     * Get all errors
+     * Gets all errors.
+     *
      * @param string $name Bag name
      * @return array
      */
@@ -103,7 +103,8 @@ class ErrorBag implements \IteratorAggregate
     }
 
     /**
-     * Put errors
+     * Puts errors.
+     *
      * @param array $error Associative array
      */
     public function put($errors)

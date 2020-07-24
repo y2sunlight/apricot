@@ -7,26 +7,24 @@ use Apricot\Foundation\Middleware\Middleware;
 use App\Foundation\Security\AuthUser;
 
 /**
- * Session認証 - Middleware
+ * Middleware - Session authentication
  */
 class SessionAuth implements Middleware
 {
     /**
-     * Excludeing controller
-     * @var array
+     * @var array List of controllers to exclude
      */
     private $exclude = [
         'AuthController',
     ];
 
     /**
-     * Process incoming requests and produces a response
      * {@inheritDoc}
      * @see \Apricot\Foundation\Middleware\Middleware::invoke()
      */
     public function process(Invoker $next): Response
     {
-        // When exclude controller
+        // When excluded controller
         if (in_array(controllerName(), $this->exclude))
         {
             return $next->invoke();
@@ -38,7 +36,7 @@ class SessionAuth implements Middleware
             return $next->invoke();
         }
 
-        // 未認証の場合は、ログイン画面を表示
+        // Redirect to login page If not authenticated.
         return redirect(route('login'));
     }
 }

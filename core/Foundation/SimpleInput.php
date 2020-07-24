@@ -2,18 +2,17 @@
 namespace Apricot\Foundation;
 
 /**
- * Very Simple Input Class
+ * Simple Input Class
  */
 class SimpleInput
 {
     /**
-     * SimpleInput Data
-     * @var array
+     * @var array input data
      */
     private $input = null;
 
     /**
-     * Create Simple Input
+     * Creates input data.
      */
     public function __construct(array $input=null)
     {
@@ -21,7 +20,8 @@ class SimpleInput
     }
 
     /**
-     * Checks if a key is present
+     * Checks if the given key is present.
+     *
      * @param string $key
      * @return boolean
      */
@@ -31,7 +31,8 @@ class SimpleInput
     }
 
     /**
-     * Get input data
+     * Gets the input data specified by the key.
+     *
      * @param string $key
      * @param string $default
      * @return mixed
@@ -49,7 +50,8 @@ class SimpleInput
     }
 
     /**
-     * Get all input data
+     * Gets all input data.
+     *
      * @return array
      */
     public function all():array
@@ -58,7 +60,8 @@ class SimpleInput
     }
 
     /**
-     * Get a subset of the input for only specified keys
+     * Gets a subset of inputs for the specified keys only.
+     *
      * @param array|mixed $keys array or arguments list
      * @return array
      */
@@ -69,7 +72,8 @@ class SimpleInput
     }
 
     /**
-     * Get a subset of the input except for specified keys
+     * Gets a subset of inputs except specified keys.
+     *
      * @param array|mixed $keys array or arguments list
      * @return array
      */
@@ -80,7 +84,8 @@ class SimpleInput
     }
 
     /**
-     * Set input data
+     * Sets input data.
+     *
      * @param string $key
      * @param string $value
      */
@@ -90,7 +95,8 @@ class SimpleInput
     }
 
     /**
-     * Remove input data
+     * Removes the input data specified by the key.
+     *
      * @param array|mixed $keys array or arguments list
      */
     public function remove($keys)

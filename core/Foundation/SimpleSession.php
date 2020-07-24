@@ -2,18 +2,17 @@
 namespace Apricot\Foundation;
 
 /**
- * Very Simple Session Class - $_SESSION Wrapper
+ * Simple Session Class - $_SESSION Wrapper
  */
 class SimpleSession
 {
     /**
-     * Flash Data
-     * @var SimpleFlash
+     * @var SimpleFlash flash data
      */
     private $flash = null;
 
     /**
-     * Create Simple Session
+     * Creates session data.
      */
     public function __construct()
     {
@@ -39,17 +38,17 @@ class SimpleSession
     }
 
     /**
-     * Session Start
+     * Starts session.
      */
     public function start()
     {
-        // Start Session
         session_start();
         $this->flash = new SimpleFlash();
     }
 
     /**
-     * Checks if session has started
+     * Checks if session has started.
+     *
      * @return bool
      */
     public function isStarted():bool
@@ -58,7 +57,8 @@ class SimpleSession
     }
 
     /**
-     * Checks if a key is present
+     * Checks if the given key is present.
+     *
      * @param string $key
      * @return bool
      */
@@ -68,7 +68,8 @@ class SimpleSession
     }
 
     /**
-     * Get session data
+     * Gets the session data specified by the key.
+     *
      * @param string $key
      * @param mixed $default
      * @return mixed
@@ -86,7 +87,8 @@ class SimpleSession
     }
 
     /**
-     * Set session data
+     * Sets session data.
+     *
      * @param string $key
      * @param mixed $value
      */
@@ -96,7 +98,8 @@ class SimpleSession
     }
 
     /**
-     * Remove session data
+     * Removes the session data specified by the key.
+     *
      * @param string $key
      */
     public function remove(string $key)
@@ -108,7 +111,8 @@ class SimpleSession
     }
 
     /**
-     * Clear session data
+     * Clears all session data.
+     *
      */
     public function clear()
     {
@@ -116,7 +120,7 @@ class SimpleSession
     }
 
     /**
-     * Destroy session data
+     * Destroys all session data.
      */
     public function destroy()
     {
@@ -131,7 +135,8 @@ class SimpleSession
     }
 
     /**
-     * Get flash data
+     * Gets the SimpleFlash instance.
+     *
      * @return \Apricot\Foundation\SimpleFlash
      */
     public function flash()

@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file contains BladeOne settings.
+ */
 return
 [
     'template_path' => env('VIEW_TEMPLATE',assets_dir('views')),

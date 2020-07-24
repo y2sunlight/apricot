@@ -9,7 +9,7 @@ use Monolog\Handler\RotatingFileHandler;
 /**
  * Log Class - Monolog\Logger Wrapper
  *
- * @method static Logger getInstance();
+ * @method static Logger getInstance() Gets the Logger instance.
  * @method static void emergency(string $message, array $context = []) Action must be taken immediately.
  * @method static void alert(string $message, array $context = []) Runtime errors that do not require immediate action but should typically be logged and monitored.
  * @method static void critical(string $message, array $context = []) Critical conditions.
@@ -23,17 +23,8 @@ use Monolog\Handler\RotatingFileHandler;
 class Log extends Singleton
 {
     /**
-     * Log Exception
-     * @param string $level 'debug','info','notice','warning','error','critical','alert','emergency
-     * @param \Exception $e
-     */
-    public static function exception(string $level, \Exception $e)
-    {
-        self::getInstance()->log($level, $e->getMessage(),[$e->getFile(), $e->getLine(), $e->getTraceAsString()]);
-    }
-
-    /**
-     * Create Monolog Logger instance.
+     * Creates the Logger instance.
+     *
      * @return \Monolog\Logger
      */
     protected static function createInstance()
@@ -53,5 +44,16 @@ class Log extends Singleton
         $instance = new Logger($log_name);
         $instance->pushHandler($stream);
         return $instance;
+    }
+
+    /**
+     * Logs an exception.
+     *
+     * @param string $level 'debug','info','notice','warning','error','critical','alert' or 'emergency
+     * @param \Exception $e
+     */
+    public static function exception(string $level, \Exception $e)
+    {
+        self::getInstance()->log($level, $e->getMessage(),[$e->getFile(), $e->getLine(), $e->getTraceAsString()]);
     }
 }

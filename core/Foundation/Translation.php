@@ -2,24 +2,23 @@
 namespace Apricot\Foundation;
 
 /**
- * Improvised Translation Class
+ * Plain Translation Class
  */
 class Translation
 {
     /**
-     * language code(ISO 639-1)
-     * @var string
+     * @var string Language code(ISO 639-1)
      */
     private $lang;
 
     /**
-     * Messages
-     * @var array
+     * @var array Messages
      */
     private $messages = [];
 
     /**
-     * Create Translation.
+     * Constructor
+     *
      * @param string $lang language code(ISO 639-1)
      */
     public function __construct(string $lang='en')
@@ -35,7 +34,8 @@ class Translation
     }
 
     /**
-     * Get language code(ISO 639-1).
+     * Gets the language code(ISO 639-1).
+     *
      * @return string
      */
     public function getLangCode():string
@@ -44,7 +44,8 @@ class Translation
     }
 
     /**
-     * Checks if a key is present.
+     * Checks if the given key is present.
+     *
      * @param string $key
      * @return bool
      */
@@ -54,7 +55,8 @@ class Translation
     }
 
     /**
-     * Get a value from the Messages.
+     * Gets the message specified by the key.
+     *
      * @param string $key
      * @param string $params
      * @return string
@@ -77,7 +79,8 @@ class Translation
     }
 
     /**
-     * Read Messages
+     * Reads messages.
+     *
      * @param string $lang_file
      * @param string $top_key
      */

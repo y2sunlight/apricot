@@ -1,18 +1,18 @@
 <?php
-//-------------------------------------------------------------------
-// Valitron\Validatorの初期設定
-//-------------------------------------------------------------------
+/**
+ * initial settings of Valitron\Validator
+ */
 return function():bool
 {
     \Valitron\Validator::langDir(config('validator.lang_dir'));
     \Valitron\Validator::lang(config('validator.lang'));
 
     //-------------------------------------------------------------------
-    // カスタムルールの追加
+    // Add custom rules
     //-------------------------------------------------------------------
     /*
-     * uniqueルール: ユニーク属性の検査を行う
-     * [例] rule('unique','ユニークカラム名','テーブル名','IDカラム名')
+     * unique rule: Check for unique attributes
+     * [Example] rule('unique','Unique column name','Table name','ID column name')
      */
     Valitron\Validator::addRule('unique', function($field, $value, array $params, array $fields)
     {

@@ -5,12 +5,13 @@ use App\Foundation\Container;
 use App\Foundation\Controller;
 
 /**
- * Stubコントローラ
+ * Stub Controller
  */
 class StubController extends Controller
 {
     /**
-     * Stub Page
+     * Index Page for this controller.
+     *
      * @return \Apricot\Foundation\Response
      */
     public function index(int $no=null)
