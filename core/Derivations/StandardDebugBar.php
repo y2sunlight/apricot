@@ -69,7 +69,7 @@ Class StandardDebugBar
         $this->autoAssetsDir = public_dir(self::ASSET_BASE);
         if (!file_exists($this->autoAssetsDir))
         {
-            @mkdir($this->autoAssetsDir, null, true);
+            @mkdir($this->autoAssetsDir, 0777, true);
         }
 
         // Creates assets file
@@ -81,8 +81,8 @@ Class StandardDebugBar
         {
             // Creates css and js
             list($cssCollection, $jsCollection) = $this->renderer->getAsseticCollection();
-            file_put_contents($css_file, $cssCollection->dump());
-            file_put_contents($js_file, $jsCollection->dump());
+            @file_put_contents($css_file, $cssCollection->dump());
+            @file_put_contents($js_file, $jsCollection->dump());
 
             // Creates vendor directory
             if (!file_exists($vendor_base))
