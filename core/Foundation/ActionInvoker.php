@@ -36,18 +36,18 @@ class ActionInvoker implements Invoker
     }
 
     /**
-     * Invokes the action.
+     * Invokes an action.
      *
      * {@inheritDoc}
      * @see \Apricot\Foundation\Invoker::invoke()
      */
     public function invoke() : Response
     {
-        // Enable auto wiring
+        // Enable auto wiring.
         $container = new \League\Container\Container;
         $container->delegate(new \League\Container\ReflectionContainer);
 
-        // Get controller instance
+        // Gets a controller instance.
         $instance = $container->get("\\App\\Controllers\\{$this->controller}");
 
         return call_user_func_array(array($instance, 'invokeAction'), [$this->action, $this->params]);

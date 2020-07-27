@@ -1,6 +1,6 @@
 <?php
 /**
- * initial settings of Valitron\Validator
+ * Initial settings of Valitron\Validator
  */
 return function():bool
 {
@@ -8,7 +8,7 @@ return function():bool
     \Valitron\Validator::lang(config('validator.lang'));
 
     //-------------------------------------------------------------------
-    // Add custom rules
+    // Adds custom rules
     //-------------------------------------------------------------------
     /*
      * unique rule: Check for unique attributes

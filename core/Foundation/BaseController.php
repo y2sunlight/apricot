@@ -47,21 +47,21 @@ class BaseController
      */
     public function invokeAction($actionName, $params)
     {
-        // Interceptor parameters
+        // Add a controller instance to parameters to invoke an interceptor.
         $iparams = array_merge(array('_controller'=>$this), $params);
 
-        // Invoke Interceptor
+        // Invokes interceptors.
         $response = null;
         foreach($this->interceptors as $interceptor)
         {
             if (is_callable($interceptor))
             {
-                // Case of callable
+                // Case of callable.
                 $response = call_user_func_array($interceptor, $iparams);
             }
             elseif(strpos($interceptor,'@')!==false)
             {
-                // Case of Controller/Action
+                // Case of Controller/Action.
                 list($class, $method) = explode('@', $interceptor);
                 if (empty($class))
                 {
@@ -73,7 +73,7 @@ class BaseController
                     $instance = new $class;
                 }
 
-                // Call interceptor
+                // Invokes an interceptor.
                 $response = call_user_func_array(array($instance, $method), $iparams);
             }
 
@@ -83,7 +83,7 @@ class BaseController
             }
         }
 
-        // Call Action
+        // Calls an Action.
         return $this->callAction($actionName, $params);
     }
 }

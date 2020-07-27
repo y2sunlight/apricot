@@ -25,7 +25,7 @@ class Translation
     {
         $this->lang = $lang;
 
-        // Read Messages
+        // Reads messages.
         foreach(glob(assets_dir("lang/{$lang}/*.php")) as $file)
         {
             $arr = explode('.', basename($file));

@@ -39,7 +39,7 @@ class RenderResponse extends \Apricot\Foundation\Response
      */
     public function commit(int $response_code=null)
     {
-        // Add header if headers does not have'Content-type'
+        // Adds 'Content-type' header if headers does not have'Content-type'.
         $matchs= preg_grep('/^content-type.*?:/i', $this->headers);
         if(empty($matchs))
         {
@@ -48,7 +48,7 @@ class RenderResponse extends \Apricot\Foundation\Response
 
         parent::commit($response_code);
 
-        // Rendering HTML
+        // Renders HTML.
         echo $this->html;
         flush();
     }

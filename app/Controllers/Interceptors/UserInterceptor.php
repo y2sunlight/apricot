@@ -35,7 +35,7 @@ class UserInterceptor
             return redirect(back())->withInputs()->withErrors($errorBag);
         }
 
-        // Remove unnecessary inputs
+        // Removes unnecessary inputs
         Input::remove('password_confirmation');
     }
 
@@ -62,7 +62,7 @@ class UserInterceptor
             return redirect(back())->withInputs()->withErrors($errorBag);
         }
 
-        // Remove unnecessary inputs
+        // Removes unnecessary inputs
         Input::remove('password_confirmation');
     }
 }

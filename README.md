@@ -6,24 +6,24 @@ Apricot is a PHP mini-framework for quickly creating simple applications.
 We recommend using Composer to create a new Apricot project as follows:
 
 ```
-composer create-project y2sunlight/apricot your-project --dev
+composer create-project y2sunlight/apricot your-project-name --dev
 ```
 
 Alternatively, you can create it manually as follows:
 
 ```
-git clone https://github.com/y2sunlight/apricot your-project
-cd your-project
+git clone https://github.com/y2sunlight/apricot your-project-name
+cd your-project-name
 composer install --dev
 ```
 
-Then please copy `.env.sample` to `.env`.
+Then copy `.env.sample` to `.env`.
 
 <br>
 
 ##### Use as a library
 
-Of course, you can also use Apricot as a library as follows:
+Also you can use Apricot as a library as follows:
 
 ```
 composer require y2sunlight/apricot
@@ -33,17 +33,17 @@ composer require y2sunlight/apricot
 
 After creating a new Apricot project, you can try it out right away.
 
-Start PHP's Built-in web server in your project folder.
+Start PHP's built-in web server in your project folder.
 
 ```
 php -S localhost:8888
 ```
 
-Please access the following URL in your browser.
+And access the following URL.
 
 * http://localhost:8888/public/
 
-The Apricot login page will appear. Please log in. Initial account is `root`, no password.
+Your Apricot project "login page" will appear. Then log in. The default account id is `root`, no password is set.
 
 ## Documentation
 
@@ -51,4 +51,4 @@ _Currently under construction_
 
 ## License
 
-The Apricot Framework is licensed under the MIT license. See [License File](LICENSE) for more information.
+The Apricot framework is licensed under the MIT license. See [License File](LICENSE) for more information.

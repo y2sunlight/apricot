@@ -20,7 +20,7 @@ Class StandardDebugBar
     /** @var string Directory of automatically generated resources. */
     protected $autoAssetsDir;
 
-    /** @var string Automatically generated resource base directory. */
+    /** @var string Name of Automatically generated resource base directory. */
     protected const ASSET_BASE = 'var/debugbar';
 
     /** @var string Name of automatically generated css. */
@@ -37,17 +37,17 @@ Class StandardDebugBar
      */
     public function __construct()
     {
-        // Create StandardDebugBar
+        // Creates StandardDebugBar
         $this->debugBar = new \DebugBar\StandardDebugBar();
 
-        // Get JavascriptRenderer
+        // Gets JavascriptRenderer
         $this->autoAssets = config('debugbar.renderer.auto_assets', false);
         if ($this->autoAssets)
         {
             $this->renderer = $this->debugBar->getJavascriptRenderer();
             $this->renderer->setIncludeVendors(false);
 
-            // Create assets to be automatically rendered
+            // Creates assets to be automatically rendered
             $this->createAssets();
         }
         else
@@ -72,19 +72,19 @@ Class StandardDebugBar
             @mkdir($this->autoAssetsDir, null, true);
         }
 
-        // Create assets file
+        // Creates assets file
         $css_file = add_path($this->autoAssetsDir, self::ASSET_CSS);
         $js_file = add_path($this->autoAssetsDir, self::ASSET_JS);
         $vendor_base = add_path(self::ASSET_BASE, self::ASSET_VENDOR);
 
         if (!file_exists($css_file) || !file_exists($js_file) || !file_exists($vendor_base))
         {
-            // Create css and js
+            // Creates css and js
             list($cssCollection, $jsCollection) = $this->renderer->getAsseticCollection();
             file_put_contents($css_file, $cssCollection->dump());
             file_put_contents($js_file, $jsCollection->dump());
 
-            // Create vendor directory
+            // Creates vendor directory
             if (!file_exists($vendor_base))
             {
                 $src_dir = $this->renderer->getBasePath() . "/vendor";

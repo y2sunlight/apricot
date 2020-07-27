@@ -26,7 +26,6 @@ class Debug extends CallStatic
      */
     public static function getInstance()
     {
-        // DebugBarの作成
         return DebugBar::getCollector('messages');
     }
 }

@@ -18,10 +18,10 @@ class AccessLog implements Middleware
      */
     public function process(Invoker $next): Response
     {
-        // Log message
+        // Logs a message.
         $message = session_id().' '.$_SERVER['REQUEST_METHOD'].' '.$_SERVER['REQUEST_URI'];
 
-        // Log context data
+        // Logs context data.
         $data = [
             'remote_addr' => $_SERVER['REMOTE_ADDR'],
             'remote_user' => array_key_exists('REMOTE_USER', $_SERVER) ?$_SERVER['REMOTE_USER'] : 'Anonymous',
@@ -30,7 +30,7 @@ class AccessLog implements Middleware
         ];
         Log::info("$message",$data);
 
-        // Call the next Invoker.
+        // Calls the next Invoker.
         return $next->invoke();
     }
 }

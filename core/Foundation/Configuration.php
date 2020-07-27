@@ -16,7 +16,7 @@ class Configuration
      */
     function __construct()
     {
-        // Read Configuration
+        // Reads Configuration
         foreach(glob(config_dir("setting/*.setting.php")) as $file)
         {
             $arr = explode('.', basename($file));

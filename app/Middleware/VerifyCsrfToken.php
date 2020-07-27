@@ -26,14 +26,14 @@ class VerifyCsrfToken implements Middleware
     {
         if (!in_array(controllerName(), $this->exclude))
         {
-            // Verify CSRF token.
+            // Verifies CSRF tokens.
             if (!CsrfToken::verify())
             {
                 throw new \Apricot\Exceptions\TokenMismatchException('VerifyCsrfToken Error');
             }
         }
 
-        // Generate CSRF token.
+        // Generates a CSRF token.
         CsrfToken::generate();
 
         return $next->invoke();

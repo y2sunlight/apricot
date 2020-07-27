@@ -28,7 +28,7 @@ class CsrfToken
     {
         $ret = true;
 
-        // Verify CSRF token in case of POST method
+        // Validates the CSRF token in the POST method.
         if (strtoupper($_SERVER['REQUEST_METHOD'])=='POST')
         {
             if (Input::get(self::CSRF_KEY,'A') != Session::get(self::CSRF_KEY,'B'))
@@ -38,10 +38,10 @@ class CsrfToken
             }
         }
 
-        // Delete CSRF token of Input
+        // Deletes the CSRF token of inputs.
         Input::remove(self::CSRF_KEY);
 
-        // If the CSRF token is disposable, delete it from the session
+        // If the CSRF token is disposable, removes it from the session.
         if (app('csrf.disposable',false))
         {
             Session::remove(self::CSRF_KEY);
@@ -57,10 +57,10 @@ class CsrfToken
      */
     public static function generate()
     {
-        // Generate a CSRF token if it has not been generated
+        // Generates a CSRF token if it has not been generated.
         if (!Session::has(self::CSRF_KEY) || empty(Session::get(self::CSRF_KEY)))
         {
-            // Generate a new CSRF token for the next request
+            // Generates a new CSRF token for the next request.
             Session::set(self::CSRF_KEY, str_random(self::CSRF_LENGTH));
         }
     }

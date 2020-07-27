@@ -1,6 +1,6 @@
 <?php
 /**
- * initial settings of Error handler (Whoops)
+ * Initial settings of Error handler (Whoops)
  */
 return function():bool
 {
@@ -19,10 +19,10 @@ return function():bool
         //----------------------------
         $whoops->pushHandler(function($exception, $inspector, $run)
         {
-            // Output error log
+            // Outputs error log
             Apricot\Log::critical($exception->getMessage(),[$exception->getFile(),$exception->getLine(), $exception->getTraceAsString()]);
 
-            // Display error screen for users
+            // Displays error screen for users
             // TODO: Here I have to suppress the exception loop
             $controller = config('whoops.controller',null);
             $action = config('whoops.action',null);

@@ -24,13 +24,13 @@ class SessionAuth implements Middleware
      */
     public function process(Invoker $next): Response
     {
-        // When excluded controller
+        // When excluded controller.
         if (in_array(controllerName(), $this->exclude))
         {
             return $next->invoke();
         }
 
-        // Verify whether user is authenticated
+        // Verifys whether user is authenticated.
         if (AuthUser::verify())
         {
             return $next->invoke();

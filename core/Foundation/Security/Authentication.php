@@ -63,7 +63,7 @@ class Authentication
         $user = $this->auth->authenticateUser($account, $password, $remenber);
         if ($user!== false)
         {
-            //Set user session
+            //Sets user session.
             $this->setUserSession($user, $remenber);
             return true;
         }
@@ -82,7 +82,7 @@ class Authentication
             $user = $this->auth->rememberUser(Cookie::get($this->getRemenberCookieName()));
             if (($user!==false))
             {
-                // Set user session
+                // Sets user session.
                 $this->setUserSession($user, true);
                 return true;
             }
@@ -107,15 +107,15 @@ class Authentication
      */
     public function verify(): bool
     {
-        // When alraedy logged in
+        // When alraedy logged in.
         if ($this->check())
         {
             $user = $this->getUser();
 
-            // Retrieve login user info
+            // Retrieves login user information.
             $new_user_info = $this->auth->retrieveUser($user);
 
-            // The login user may have been deleted, but keep on login
+            // The logged-in user may have been deleted, but will continue to log in.
             if ($new_user_info!==false)
             {
                 $this->setUser($new_user_info);
@@ -123,7 +123,7 @@ class Authentication
             return true;
         }
 
-        // If not authenticated, remember the path after login
+        // If not authenticated, remembers the path after logging in.
         $this->setPathAfterLogin($_SERVER['REQUEST_URI']);
         return false;
     }
@@ -133,10 +133,10 @@ class Authentication
      */
     public function forget()
     {
-        // Destroy session completely
+        // Destroys session completely.
         Session::destroy();
 
-        // Remove user from cookie
+        // Removes user from cookie.
         Cookie::remove($this->getRemenberCookieName());
     }
 
@@ -168,23 +168,23 @@ class Authentication
      */
     private function setUserSession(object $user, bool $remenber)
     {
-        // Save user in session
+        // Saves user in session.
         $this->setUser($user);
 
         if ($remenber)
         {
             $remenber_token = $this->getRemenberToken();
 
-            // Save remenber_token to DB
+            // Saves remenber_token to DB.
             if ($this->auth->saveRemenberToken($user, $remenber_token))
             {
-                // Save to cookie
+                // Saves to cookie.
                 Cookie::set($this->getRemenberCookieName(), $remenber_token, app('auth.expires_sec'));
             }
         }
         else
         {
-            // Remove from cookie
+            // Removes from cookie.
             Cookie::remove($this->getRemenberCookieName());
         }
     }

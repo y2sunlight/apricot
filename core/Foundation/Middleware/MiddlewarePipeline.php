@@ -14,7 +14,7 @@ class MiddlewarePipeline
     private $middleware = [];
 
     /**
-     * Creates a Middleware pipeline.
+     * Creates a middleware pipeline.
      *
      * @param Middleware[] $middleware
      */
@@ -27,7 +27,7 @@ class MiddlewarePipeline
     }
 
     /**
-     * Adds a middleware.
+     * Adds middleware.
      *
      * @param Middleware $middleware
      */
@@ -45,7 +45,7 @@ class MiddlewarePipeline
      */
     public function executeAction(ActionInvoker $invoker)
     {
-        // Create Pipeline
+        // Creates a Pipeline.
         foreach($this->middleware as $middleware)
         {
             $invoker = new MiddlewareInvoker($middleware, $invoker);

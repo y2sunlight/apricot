@@ -40,7 +40,7 @@ class Lang extends Singleton
         if (!array_key_exists('HTTP_ACCEPT_LANGUAGE', $_SERVER)) return null;
         $http_langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
-        // Get user languages
+        // Gets user languages
         $user_langs = [];
         foreach($http_langs as $lang)
         {
@@ -48,7 +48,7 @@ class Lang extends Singleton
             if (!in_array($lang, $user_langs)) $user_langs[] = $lang;
         }
 
-        // Get asset languages
+        // Gets asset languages
         $asset_langs = @glob(assets_dir('lang').'/*', GLOB_ONLYDIR);
         if (empty($asset_langs)) return null;
         $asset_langs = array_map(
@@ -58,7 +58,7 @@ class Lang extends Singleton
             $asset_langs
         );
 
-        // Match user and asset languages
+        // Matches user and asset languages
         foreach($user_langs as $lang)
         {
             if (in_array($lang, $asset_langs))

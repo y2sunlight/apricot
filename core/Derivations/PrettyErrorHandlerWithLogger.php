@@ -12,7 +12,7 @@ class PrettyErrorHandlerWithLogger extends \Whoops\Handler\PrettyPageHandler
      */
     public function handle()
     {
-        // エラーログ出力
+        // Error log output
         $exception = parent::getException();
         \Apricot\Log::critical($exception->getMessage(),[$exception->getFile(),$exception->getLine(), $exception->getTraceAsString()]);
 

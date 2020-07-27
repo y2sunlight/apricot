@@ -17,7 +17,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        // Register the interceptor
+        // Registers the login interceptor
         $this->intercept('login', function(Controller $controller)
         {
             $inputs = Input::all();
@@ -46,13 +46,13 @@ class AuthController extends Controller
     {
         if (AuthUser::check())
         {
-            // Top page display if authenticated
+            // Redirects to the top page if authenticated
             return redirect(route(''));
         }
 
         if (AuthUser::remember())
         {
-            // Top page display if automatic authentication is possible
+            // Redirects to the top page display if automatic authentication is possible
             return redirect(route(''));
         }
 
@@ -86,10 +86,10 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        // Destroy the session
+        // Destroys the session
         AuthUser::forget();
 
-        // Show the login form
+        // Redirects to the login page
         return redirect(route("login"));
     }
 }

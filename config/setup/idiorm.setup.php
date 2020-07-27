@@ -4,17 +4,17 @@
  */
 return function():bool
 {
-    // Prepare the database files
+    // Prepares the database files
     $db_file = config('idiorm.sqlite.db_file');
     if (!file_exists($db_path=dirname($db_file)))
     {
         @mkdir($db_path, null, true);
     }
 
-    // Check if DB file exists
+    // Checks if DB file exists
     $new_db_file = !file_exists($db_file);
 
-    // Connect to database
+    // Connects to database
     ORM::configure([
         'connection_string' => config('idiorm.sqlite.connection_string'),
         'caching' => config('idiorm.sqlite.caching',false),
@@ -27,7 +27,7 @@ return function():bool
     ]);
 
     //-------------------------------------------
-    // Create tables when creating a new DB
+    // Creates tables when creating a new DB
     //-------------------------------------------
     if ($new_db_file)
     {
@@ -42,7 +42,7 @@ return function():bool
     }
 
     //-------------------------------------------
-    // Create initial data when a table is empty
+    // Creates initial data when a table is empty
     //-------------------------------------------
     $initial_data = config('idiorm.initial_data');
     if (isset($initial_data))
@@ -61,7 +61,7 @@ return function():bool
                     }
                 }
 
-                // Create new records
+                // Creates new records
                 if (array_key_exists('rows', $item))
                 {
                     $rows = (array)$item['rows'];
@@ -77,7 +77,7 @@ return function():bool
         }
     }
 
-    // Start SQL log
+    // Starts SQL log
     ORM::configure('logging' , config('idiorm.sqlite.logging',false));
     return true; // Must return true on success
 };

@@ -28,7 +28,7 @@ class UncaughtExceptionHandler
             $status_code = 500;
         }
 
-        // Render the error page.
+        // Renders the error page.
         render('error.exception', ['status_code'=>$status_code])->commit($status_code);
     }
 }

@@ -34,13 +34,15 @@ class Log extends Singleton
         $log_level = config('monolog.level');
         $log_max_files = config('monolog.max_files',0);
 
-        // ログハンドラーの作成
-        // ログフォーマット設定: ログ内の改行を許可、付加情報が空の場合無視する
+        // Creates a log handler.
+        // Log format setting:
+        // * Allow line breaks in log
+        // * Ignore if additional information is empty
         $log_file_name = "{$log_path}/{$log_name}.log";
         $stream = new RotatingFileHandler($log_file_name, $log_max_files, $log_level);
         $stream->setFormatter(new LineFormatter(null, null, true, true));
 
-        // ログチャネルの作成  ////////////////////////
+        // Creates a log channel.
         $instance = new Logger($log_name);
         $instance->pushHandler($stream);
         return $instance;

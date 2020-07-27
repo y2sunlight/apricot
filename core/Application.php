@@ -140,24 +140,24 @@ class Application
     {
         if (!self::$instance)
         {
-            // Set project directories
+            // Sets project directories
             $this->projectDir = $projectDir;
             $this->configDir = $projectDir.'/config';
             $this->assetsDir = $projectDir.'/assets';
             $this->varDir = $projectDir.'/var';
 
-            // Set public directory
+            // Sets public directory
             $this->publicDir = $publicDir;
 
-            // Set route base path
+            // Sets route base path
             $routeBase = dirname($_SERVER['SCRIPT_NAME']);
             if (preg_match('/^[\\.\\\\]$/', $routeBase)) $routeBase='';
             $this->routeBase = $routeBase;
 
-            // Set Dotenv
+            // Sets Dotenv
             \Dotenv\Dotenv::createImmutable($projectDir)->load();
 
-            // Set timezone
+            // Sets timezone
             date_default_timezone_set(env('APP_TIMEZONE','UCT'));
 
             self::$instance = $this;
@@ -217,14 +217,14 @@ class Application
      */
     public function run(callable $routeDefinitionCallback)
     {
-        // Create dispatcher
+        // Creates dispatcher
         $dispatcher = \FastRoute\simpleDispatcher($routeDefinitionCallback);
 
-        // Fetch method and URI from somewhere
+        // Fetchs method and URI from somewhere
         $httpMethod = $_SERVER['REQUEST_METHOD'];
         $uri = $_SERVER['REQUEST_URI'];
 
-        // Strip query string (?foo=bar) and decode URI
+        // Strips query string (?foo=bar) and decode URI
         if (false !== $pos = strpos($uri, '?'))
         {
             $uri = substr($uri, 0, $pos);
@@ -257,7 +257,7 @@ class Application
                     // Case of Controller/Action
                     list($this->controllerName, $this->actionName) = explode('@', $handler);
 
-                    // Ecexute action
+                    // Ecexutes an action
                     $this->executeAction($this->controllerName, $this->actionName, $params);
                 }
                 else
@@ -277,13 +277,13 @@ class Application
      */
     private function executeAction(string $controllerName, string $actionName, array $params=[])
     {
-        // Create ActionInvoker
+        // Creates ActionInvoker
         $action = new Foundation\ActionInvoker($controllerName, $actionName, $params);
 
-        // Create Middleware pipeline
+        // Creates Middleware pipeline
         $pipeline = new Foundation\Middleware\MiddlewarePipeline($this->app['middleware']);
 
-        // Ecexute action
+        // Ecexutes an action
         $response = $pipeline->executeAction($action);
         if ($response instanceof Foundation\Response)
         {

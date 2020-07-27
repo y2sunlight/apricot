@@ -34,12 +34,12 @@ class User extends Model implements Authenticatable
      */
     public function update($id, array $inputs):ORM
     {
-        // Change password only if entered.
+        // Updates a password only if entered
         if(empty($inputs['password'])) unset($inputs['password']);
 
-        // Encrypt the password
         if(array_key_exists('password', $inputs))
         {
+            // Encrypts the entered password
             $inputs['password'] = password_hash($inputs['password'], PASSWORD_DEFAULT);
         }
 

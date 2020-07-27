@@ -82,23 +82,23 @@ class Response
     {
         if (!headers_sent())
         {
-            // Set Http response code
+            // Sets a Http response code.
             if (isset($response_code))
             {
                 http_response_code($response_code);
             }
 
-            // Output headers
+            // Outputs headers.
             foreach($this->headers as $header)
             {
                 header($header);
             }
         }
 
-        // Save old URL Path
+        // Saves old URL Path.
         $this->addFlash(self::FLASH_KEY_BACK, $_SERVER['REQUEST_URI']);
 
-        // Output flashes
+        // Outputs flashes.
         foreach($this->flashes as $key=>$value)
         {
             Session::flash()->set($key, $value);

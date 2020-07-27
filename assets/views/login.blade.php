@@ -55,7 +55,7 @@
                                 </div>
                             </div>
 
-                            {{-- remember--}}
+                            {{-- remember me --}}
                             <div class="form-group row">
                                 <div class="col-md-8 offset-md-3">
                                     <div class="form-check my-md-0 my-3">

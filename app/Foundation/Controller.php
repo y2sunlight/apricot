@@ -42,7 +42,7 @@ class Controller extends BaseController
         // Transactional action
         if (!ORM::getDb()->beginTransaction())
         {
-            // Redirect
+            // Redirects to the previous page
             $errorBag = new ErrorBag(__('messages.error.db.access'));
             return redirect(back())->withInputs()->withErrors($errorBag);
         }
@@ -59,7 +59,7 @@ class Controller extends BaseController
             \Apricot\Log::exception('error',$e);
             \Apricot\Debug::error($e);
 
-            // Redirect
+            // Redirects to the previous page
             $errorBag = new ErrorBag($e->getUserMessage());
             return redirect(back())->withInputs()->withErrors($errorBag);
         }

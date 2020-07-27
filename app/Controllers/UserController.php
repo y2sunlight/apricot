@@ -24,11 +24,11 @@ class UserController extends Controller
         // User Model
         $this->user = $user;
 
-        // Register interceptors.
+        // Registers interceptors.
         $this->intercept('insert', 'UserInterceptor@insert');
         $this->intercept('update', 'UserInterceptor@update');
 
-        // Register transactional actions.
+        // Registers transactional actions.
         $this->transactional('insert','update','delete');
     }
 
@@ -72,7 +72,7 @@ class UserController extends Controller
             throw new ApplicationException(__('messages.error.db.insert'),$e->getMessage(),0,$e);
         }
 
-        // Redirect to the user edit page.
+        // Redirects to the user edit page.
         return redirect(route("user/{$user->id}/edit"))->with('msg',__('messages.success.db.insert'));
     }
 
@@ -83,7 +83,7 @@ class UserController extends Controller
      */
     public function edit(int $id)
     {
-        // Find By the primary key
+        // Finds By the primary key
         $user = $this->user->findOne($id);
         if ($user!==false)
         {
@@ -118,7 +118,7 @@ class UserController extends Controller
             throw new ApplicationException(__('messages.error.db.update'),$e->getMessage(),0,$e);
         }
 
-        // Redirect to the user edit page.
+        // Redirects to the user edit page.
         return redirect(route("user/{$id}/edit"))->with('msg',__('messages.success.db.update'));
     }
 
@@ -143,7 +143,7 @@ class UserController extends Controller
             throw new ApplicationException(__('messages.error.db.delete'),$e->getMessage(),0,$e);
         }
 
-        // Redirect to the users list page.
+        // Redirects to the users list page.
         return redirect(route("users"))->with('msg',__('messages.success.db.delete'));
     }
 }
