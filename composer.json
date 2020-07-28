@@ -1,8 +1,8 @@
 {
     "name": "y2sunlight/apricot",
     "type": "project",
-    "description": "Apricot is a PHP mini-framework for quickly creating simple applications.",
-    "keywords": ["php","framework","mini","micro"],
+    "description": "Apricot is a PHP lightweight framework for quickly creating simple web applications.",
+    "keywords": ["php","framework","lightweight","micro"],
     "homepage": "http://y2sunlight.com/ground/doku.php?id=apricot:top",
     "license": "MIT",
     "authors": [

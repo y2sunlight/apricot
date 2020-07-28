@@ -1,23 +1,28 @@
 # Apricot Framework
-Apricot is a PHP mini-framework for quickly creating simple applications.
+Apricot is a PHP lightweight framework for quickly creating simple web applications.
 
 ## Installation
 
 We recommend using Composer to create a new Apricot project as follows:
 
 ```
-composer create-project y2sunlight/apricot your-project-name --dev
+composer create-project y2sunlight/apricot your-project --dev
 ```
 
 Alternatively, you can create it manually as follows:
 
 ```
-git clone https://github.com/y2sunlight/apricot your-project-name
-cd your-project-name
+git clone https://github.com/y2sunlight/apricot your-project
+cd your-project
 composer install --dev
 ```
 
 Then copy `.env.sample` to `.env`.
+
+```
+cd your-project
+cp .env.sample .env
+```
 
 <br>
 
