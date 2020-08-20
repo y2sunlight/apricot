@@ -1,12 +1,12 @@
 /*
  * User Table
  */
-CREATE TABLE IF NOT EXISTS user
+create table if not exists user
 (
     id integer primary key autoincrement,
     account text unique not null,
     password text not null,
-    email text not null,
+    email text,
     note text,
     remember_token text,
     created_at text not null,

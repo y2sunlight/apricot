@@ -67,7 +67,7 @@
                     </div>
                     @endif
 
-                    {{-- msg --}}
+                    {{-- message --}}
                     @if(Flash::has('msg'))
                     <div class="alert alert-info mt-3">
                         {{Flash::get('msg')}}

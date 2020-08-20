@@ -74,9 +74,10 @@ class Model
      */
     public function insert(array $inputs):ORM
     {
+        $now = $this->now();
         $row = $this->for_table()->create($inputs);
-        $row->set_expr('created_at', "datetime('now','localtime')");
-        $row->set_expr('updated_at', "datetime('now','localtime')");
+        $row->set('created_at', $now);
+        $row->set('updated_at', $now);
         $this->success = $row->save();
         return $row;
     }
@@ -108,7 +109,7 @@ class Model
 
         // Saving the input fields
         $row->set($inputs);
-        $row->set_expr('updated_at', "datetime('now','localtime')");
+        $row->set('updated_at', $this->now());
         $row->set_expr('version_no', "version_no+1");
         $this->success = $row->save();
         return $row;
@@ -139,5 +140,14 @@ class Model
     public function isSuccess():bool
     {
         return $this->success;
+    }
+
+    /**
+     * Gets the current date and time.
+     * @return string
+     */
+    public function now()
+    {
+        return date("Y-m-d H:i:s");
     }
 }

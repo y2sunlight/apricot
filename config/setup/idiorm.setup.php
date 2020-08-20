@@ -4,20 +4,25 @@
  */
 return function():bool
 {
-    // Prepares the database files
-    $db_file = config('idiorm.sqlite.db_file');
-    if (!file_exists($db_path=dirname($db_file)))
+    // Gets the database type
+    $database = config('idiorm.database');
+    if (is_null($database))return true;
+
+    // Prepares the database file such as SQLite
+    $db_file = config("idiorm.connections.{$database}.db_file");
+    if (isset($db_file) && !file_exists($db_path=dirname($db_file)))
     {
         @mkdir($db_path, null, true);
     }
 
-    // Checks if DB file exists
-    $new_db_file = !file_exists($db_file);
+    $new_db_file = !empty($db_file) && !file_exists($db_file);
 
+    //-------------------------------------------
     // Connects to database
+    //-------------------------------------------
     ORM::configure([
-        'connection_string' => config('idiorm.sqlite.connection_string'),
-        'caching' => config('idiorm.sqlite.caching',false),
+        'connection_string' => config("idiorm.connections.{$database}.connection_string"),
+        'caching' => config('idiorm.caching',false),
         'logging' => false,
         'logger' => function($log_string, $query_time)
         {
@@ -26,12 +31,22 @@ return function():bool
         },
     ]);
 
-    //-------------------------------------------
-    // Creates tables when creating a new DB
-    //-------------------------------------------
-    if ($new_db_file)
+    $user = config("idiorm.connections.{$database}.username");
+    if (isset($user))
     {
-        $sql_text = file_get_sql(assets_dir('sql/create.sql'));
+        ORM::configure('username', $user);
+        ORM::configure('password', config("idiorm.connections.{$database}.password",''));
+    }
+
+    //-------------------------------------------
+    // Creates tables if they doesn't exist.
+    //-------------------------------------------
+    $chech_tables = config("idiorm.connections.{$database}.check_tables");
+    $no_tabels = !empty($chech_tables) && ORM::raw_execute($chech_tables) && (ORM::get_last_statement()->fetch(PDO::FETCH_ASSOC) === false);
+
+    if ($new_db_file || $no_tabels)
+    {
+        $sql_text = file_get_sql(assets_dir("sql/{$database}/create.sql"));
         if (!empty($sql_text))
         {
             foreach($sql_text as $sql)
@@ -52,13 +67,18 @@ return function():bool
             if(ORM::for_table($key)->find_one()===false)
             {
                 // SQL execution
-                if (array_key_exists('exec', $item))
+                $exec=[];
+                if (array_key_exists("exec", $item))
                 {
-                    $exec = (array)$item['exec'];
-                    foreach($exec as $sql)
-                    {
-                        ORM::get_db()->exec($sql);
-                    }
+                    $exec = array_merge($exec, (array)$item["exec"]);
+                }
+                if (array_key_exists("exec:{$database}", $item))
+                {
+                    $exec = array_merge($exec, (array)$item["exec:{$database}"]);
+                }
+                foreach($exec as $sql)
+                {
+                    ORM::get_db()->exec($sql);
                 }
 
                 // Creates new records
@@ -68,8 +88,6 @@ return function():bool
                     foreach($rows as $row)
                     {
                         $row = ORM::for_table($key)->create($row);
-                        $row->set_expr('created_at', "datetime('now')");
-                        $row->set_expr('updated_at', "datetime('now')");
                         $row->save();
                     }
                 }
@@ -78,6 +96,6 @@ return function():bool
     }
 
     // Starts SQL log
-    ORM::configure('logging' , config('idiorm.sqlite.logging',false));
+    ORM::configure('logging' , config('idiorm.logging',false));
     return true; // Must return true on success
 };

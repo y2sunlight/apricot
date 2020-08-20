@@ -1,7 +1,7 @@
-{{-- 親レイアウト --}}
+{{-- Parent layout --}}
 @extends('error.layout')
 
-{{-- コンテンツ --}}
+{{-- content --}}
 @section('content')
     <div class="flex-row message">
         <div class="mb">{{$message}}</div>
