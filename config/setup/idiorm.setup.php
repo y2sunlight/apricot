@@ -32,10 +32,16 @@ return function():bool
     ]);
 
     $user = config("idiorm.connections.{$database}.username");
-    if (isset($user))
+    if (!empty($user))
     {
         ORM::configure('username', $user);
         ORM::configure('password', config("idiorm.connections.{$database}.password",''));
+    }
+
+    $options = config("idiorm.connections.{$database}.driver_options");
+    if (!empty($options))
+    {
+        ORM::configure('driver_options', $options);
     }
 
     //-------------------------------------------
@@ -64,7 +70,7 @@ return function():bool
     {
         foreach($initial_data as $key=>$item)
         {
-            if(ORM::for_table($key)->find_one()===false)
+            if(ORM::forTable($key)->findOne()===false)
             {
                 // SQL execution
                 $exec=[];
@@ -87,7 +93,7 @@ return function():bool
                     $rows = (array)$item['rows'];
                     foreach($rows as $row)
                     {
-                        $row = ORM::for_table($key)->create($row);
+                        $row = ORM::forTable($key)->create($row);
                         $row->save();
                     }
                 }

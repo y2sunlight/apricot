@@ -27,9 +27,9 @@ trait AuthTrait
     public function authenticateUser(string $account, string $password)
     {
         $table = $this->getAuthName();
-        $user = ORM::for_table($table)
+        $user = ORM::forTable($table)
         ->where([app("auth.db.{$table}.account")=>$account])
-        ->find_one();
+        ->findOne();
 
         if (($user!==false) && (password_verify($password, $user->as_array()[app("auth.db.{$table}.password")])))
         {
@@ -48,9 +48,9 @@ trait AuthTrait
     public function rememberUser(string $remenber_token)
     {
         $table = $this->getAuthName();
-        $user = ORM::for_table($table)
+        $user = ORM::forTable($table)
         ->where([app("auth.db.{$table}.remember")=>$remenber_token])
-        ->find_one();
+        ->findOne();
 
         if (($user!==false))
         {
@@ -69,9 +69,9 @@ trait AuthTrait
     public function retrieveUser(object $user)
     {
         $table = $this->getAuthName();
-        $new_user = ORM::for_table($table)
+        $new_user = ORM::forTable($table)
         ->where('account',$user->as_array()[app("auth.db.{$table}.account")])
-        ->find_one();
+        ->findOne();
 
         return $new_user;
     }

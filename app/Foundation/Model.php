@@ -13,7 +13,7 @@ class Model
     /**
      * @var bool Last SQL(insert/update/delete) execution result.
      */
-    private $success = false;
+    private $successful = false;
 
     /**
      * Gets the table name
@@ -29,9 +29,9 @@ class Model
      *
      * @return \ORM
      */
-    public function for_table():ORM
+    public function forTable():ORM
     {
-        return ORM::for_table(snake_case(get_short_class_name($this)));
+        return ORM::forTable($this->tableName());
     }
 
     /**
@@ -41,7 +41,7 @@ class Model
      */
     public function findAll()
     {
-        return $this->for_table()->find_many();
+        return $this->forTable()->findMany();
     }
 
     /**
@@ -52,7 +52,7 @@ class Model
      */
     public function findOne(int $id)
     {
-        return $this->for_table()->find_one($id);
+        return $this->forTable()->findOne($id);
     }
 
     /**
@@ -63,7 +63,7 @@ class Model
      */
     public function create(array $inputs=null):ORM
     {
-        return $this->for_table()->create($inputs);
+        return $this->forTable()->create($inputs);
     }
 
     /**
@@ -75,10 +75,10 @@ class Model
     public function insert(array $inputs):ORM
     {
         $now = $this->now();
-        $row = $this->for_table()->create($inputs);
+        $row = $this->forTable()->create($inputs);
         $row->set('created_at', $now);
         $row->set('updated_at', $now);
-        $this->success = $row->save();
+        $this->successful = $row->save();
         return $row;
     }
 
@@ -91,7 +91,7 @@ class Model
      */
     public function update($id, array $inputs):ORM
     {
-        $row = $this->for_table()->find_one($id);
+        $row = $this->forTable()->findOne($id);
         if ($row===false)
         {
             // Apricot assumes use of SQLite 3.0.8 or higher, so the default value of transaction isolation level is DEFERRED.
@@ -111,7 +111,7 @@ class Model
         $row->set($inputs);
         $row->set('updated_at', $this->now());
         $row->set_expr('version_no', "version_no+1");
-        $this->success = $row->save();
+        $this->successful = $row->save();
         return $row;
     }
 
@@ -123,12 +123,12 @@ class Model
      */
     public function delete($id):ORM
     {
-        $row = $this->for_table()->find_one($id);
+        $row = $this->forTable()->findOne($id);
         if ($row===false)
         {
             throw new ApplicationException(__('messages.error.db.delete'));
         }
-        $this->success = $row->delete();
+        $this->successful = $row->delete();
         return $row;
     }
 
@@ -137,16 +137,16 @@ class Model
      *
      * @return bool
      */
-    public function isSuccess():bool
+    public function isSuccessful():bool
     {
-        return $this->success;
+        return $this->successful;
     }
 
     /**
      * Gets the current date and time.
      * @return string
      */
-    public function now()
+    private function now()
     {
         return date("Y-m-d H:i:s");
     }

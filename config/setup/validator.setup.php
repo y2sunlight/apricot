@@ -18,13 +18,13 @@ return function():bool
     {
         if (count($params)<1) return false;
 
-        $query = ORM::for_table($params[0])->where($field, $value);
+        $query = ORM::forTable($params[0])->where($field, $value);
         if ((count($params)>1) && array_key_exists($params[1], $fields))
         {
             $id_field = $params[1];
             $query = $query->where_not_equal($id_field, $fields[$id_field]);
         }
-        $users = $query->find_one();
+        $users = $query->findOne();
 
         return ($users===false);
 

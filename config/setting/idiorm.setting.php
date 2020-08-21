@@ -11,13 +11,14 @@ return
     'connections' =>
     [
         'sqlite' => [
-            'db_file' => var_dir('db/apricot.sqlite'),
             'connection_string' => 'sqlite:'.var_dir('db/apricot.sqlite'),
+            'db_file' => var_dir('db/apricot.sqlite'),
         ],
         'mysql' => [
             'connection_string' => 'mysql:host=localhost;port=3306;dbname=apricotdb',
             'username' => 'apricot',
             'password' => 'password',
+            'driver_options' => [PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8'],
             'check_tables' => 'show tables like \'user\'',
         ],
     ],
