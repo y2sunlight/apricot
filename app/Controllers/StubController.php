@@ -18,13 +18,12 @@ class StubController extends Controller
     {
         $title = "Stub {$no}";
 
-        /*
-         * Example for Container
-         * @var \App\Models\User $user
+        /**
+         * @var \App\Services\SampleService $service
          */
-        $user = Container::get('user');
-        $userCount = count($user->findAll());
-        $messages[] = "Number of registered users : {$userCount}";
+        $service = Container::get('SampleService');
+        $count = $service->getUserCount();
+        $messages[] = "Number of registered users : {$count}";
 
         return render('stub',['title'=>$title,'messages'=>$messages]);
     }

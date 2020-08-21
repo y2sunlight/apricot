@@ -21,6 +21,7 @@ return function():bool
         /* App */
         'ViewHelper' => App\Helpers\ViewHelper::class,
         'ValidatorErrorBag' => App\Foundation\ValidatorErrorBag::class,
+        'Container' => App\Foundation\Container::class,
         'AuthUser' => App\Foundation\Security\AuthUser::class,
     ];
 
