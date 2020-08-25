@@ -89,7 +89,7 @@ class SimpleInput
      * @param string $key
      * @param string $value
      */
-    public function set(string $key, string $value)
+    public function set(string $key, string $value=null)
     {
         $this->input[$key] = $value;
     }

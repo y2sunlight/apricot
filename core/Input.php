@@ -13,7 +13,7 @@ use Apricot\Foundation\SimpleInput;
  * @method static array all() Gets all input data.
  * @method static array only(array|mixed $keys) Gets a subset of inputs for the specified keys only.
  * @method static array except(array|mixed $keys) Gets a subset of inputs except specified keys.
- * @method static set(string $key, string $vale) Sets input data.
+ * @method static set(string $key, string $vale=null) Sets input data.
  * @method static remove(string $key) Removes the input data specified by the key.
  */
 class Input extends Singleton

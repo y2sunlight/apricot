@@ -16,6 +16,7 @@ return
         \App\Middleware\VerifyCsrfToken::class,  /* Verify CSRF Token */
 //      \App\Middleware\Auth\BasicAuth::class,   /* Basic authentication */
         \App\Middleware\Auth\SessionAuth::class, /* Session authentication */
+        \App\Middleware\InputConverter::class,   /* Input Converter */
     ],
     'csrf' =>[
         'disposable' => false,

@@ -34,7 +34,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{route('users')}}">{{__('messages.app.menu.menu1')}}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('stub/2')}}">{{__('messages.app.menu.menu2')}}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('stub/3')}}">{{__('messages.app.menu.menu3')}}</a></li>
-                <li class="nav-item"><a class="nav-link" href="http://y2sunlight.com/ground/doku.php?id=apricot:top" target="_blank">{{__('messages.app.menu.about_me')}}</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/y2sunlight/apricot" target="_blank">{{__('messages.app.menu.about_me')}}</a></li>
             </ul>
 
             @if(app('auth.menu',false))

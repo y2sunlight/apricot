@@ -62,7 +62,7 @@ class SimpleCookie
      * @param int $expires_sec (not time()*60*60, but 60*60 )
      * @return bool return true if successfuly
      */
-    public function set(string $key, string $value, int $expires_sec=0):bool
+    public function set(string $key, string $value=null, int $expires_sec=0):bool
     {
         if($this->sendCookie($key, $value, $expires_sec))
         {
