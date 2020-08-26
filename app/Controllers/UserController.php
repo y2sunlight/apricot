@@ -67,6 +67,10 @@ class UserController extends Controller
         {
             $user = $this->user->insert($inputs);
         }
+        catch(ApplicationException $e)
+        {
+            throw $e;
+        }
         catch(\Exception $e)
         {
             throw new ApplicationException(__('messages.error.db.insert'),$e->getMessage(),0,$e);

@@ -50,6 +50,20 @@ class ActionInvoker implements Invoker
         // Gets a controller instance.
         $instance = $container->get("\\App\\Controllers\\{$this->controller}");
 
-        return call_user_func_array(array($instance, 'invokeAction'), [$this->action, $this->params]);
+        // Sorts parameters so names match.
+        $actionParams = array();
+        $param_keys = array_keys($this->params);
+
+        $reflection = new \ReflectionMethod($instance, $this->action);
+        foreach($reflection->getParameters() AS $arg)
+        {
+            if(in_array($arg->name, $param_keys))
+            {
+                $actionParams[] = $this->params[$arg->name];
+            }
+        }
+
+        // Calls $instance->invokeAction($this->action, $actionParams).
+        return call_user_func_array(array($instance, 'invokeAction'), [$this->action, $actionParams]);
     }
 }

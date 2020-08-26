@@ -13,6 +13,7 @@ class UserInterceptor
     /**
      * Interceptor for insert method.
      *
+     * @param Controller $controller
      * @return void|\Apricot\Foundation\Response return Response if failed
      */
     public function insert(Controller $controller)
@@ -42,6 +43,7 @@ class UserInterceptor
     /**
      * Interceptor for update method.
      *
+     * @param Controller $controller
      * @param int $id
      * @return void|\Apricot\Foundation\Response return Response if failed
      */
