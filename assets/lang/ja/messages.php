@@ -56,7 +56,6 @@ return [
             'btn_back'=>'戻る',
             'btn_cancel'=>'キャンセル',
             'btn_insert'=>'登録',
-
         ],
         'edit'=>[
             'title'=>'ユーザ編集',

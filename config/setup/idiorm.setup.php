@@ -44,6 +44,16 @@ return function():bool
         ORM::configure('driver_options', $options);
     }
 
+    // Executes initial SQL statements
+    $initial_statements = config("idiorm.connections.{$database}.initial_statements");
+    if (isset($initial_statements))
+    {
+        foreach($initial_statements as $sql)
+        {
+            ORM::get_db()->exec($sql);
+        }
+    }
+
     //-------------------------------------------
     // Creates tables if they doesn't exist.
     //-------------------------------------------

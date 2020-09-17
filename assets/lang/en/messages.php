@@ -56,7 +56,6 @@ return [
             'btn_back'=>'Back',
             'btn_cancel'=>'Cancel',
             'btn_insert'=>'Register',
-
         ],
         'edit'=>[
             'title'=>'Edit user',

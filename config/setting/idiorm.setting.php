@@ -20,6 +20,9 @@ return
             'password' => 'password',
             'driver_options' => [PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8'],
             'check_tables' => 'show tables like \'user\'',
+            'initial_statements'=> [
+                'set names utf8',
+            ],
         ],
     ],
     'initial_data' => [
