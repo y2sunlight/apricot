@@ -48,7 +48,7 @@ return function():bool
     $initial_statements = config("idiorm.connections.{$database}.initial_statements");
     if (isset($initial_statements))
     {
-        foreach($initial_statements as $sql)
+        foreach((array)$initial_statements as $sql)
         {
             ORM::get_db()->exec($sql);
         }
