@@ -55,7 +55,7 @@ When using it as a library, it's recommended to use the [Apricot skeleton](https
 
 ## Documentation
 
-_Currently under construction_
+The Apricot documentation can be found on the GitHub Wiki: [Apricot-Document](https://github.com/y2sunlight/apricot/wiki/Apricot-Document)
 
 ## License
 
